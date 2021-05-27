@@ -1,0 +1,152 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: Roboto;
+}
+
+body{
+  background-color: black;
+}
+
+header{
+  width: 100%;
+  height: 170px;
+  background-color: #4F4F4F;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+  z-index: 2147483647;
+}
+
+header *{
+  
+}
+
+#headerNav{
+  display: flex;
+  z-index: 1000;
+  list-style-type: none;
+  position: absolute;
+  left: 200px;
+}
+
+#headerNav li{
+  margin-inline: 30px;
+}
+
+#profilePicture{
+  height: 100%;
+  width: auto;
+  border-radius: 5%;
+}
+
+#profileNav{
+  display: flex;
+  position: absolute;
+  right: 170px;
+}
+
+#logo{
+  height: 100%;
+  width: auto;
+  border-radius: 5%;
+}
+
+#title{
+  position: absolute;
+  width: 703px;
+  height: 141px;
+  left: 139px;
+  top: 9px;
+
+  font-style: normal;
+  font-weight: 900;
+  font-size: 144px;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.1);
+}
+
+
+.clickable{
+  color: white;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 28px;
+}
+
+.clickable:hover{
+  color: #2F80ED;
+}
+
+.clickable:active{
+  filter: invert(20%) sepia(71%) saturate(915%) hue-rotate(183deg) brightness(95%) contrast(96%);
+}
+
+.clickableImg{
+  cursor: pointer;
+  height: 25px;
+}
+
+.clickableImg:hover{
+  filter: invert(45%) sepia(90%) saturate(2392%) hue-rotate(197deg) brightness(93%) contrast(99%);
+}
+
+.clickableImg:active{
+  filter: invert(20%) sepia(71%) saturate(915%) hue-rotate(183deg) brightness(95%) contrast(96%);
+}
+
+#gamePreview{
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.25); 
+  cursor: default;
+  overflow: auto;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.gamePic{
+  width: 250px;
+  height:430px;
+
+  object-fit: cover;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  margin-inline: 30px;
+  margin-block: 30px;
+
+  cursor: pointer;
+  -webkit-user-drag: none; 
+  
+}
+
+.gamePic:hover{
+  width: 270px;
+  height: 450px;
+  margin-inline: 20px;
+  margin-block: 20px;
+}
+
+.gamePic:active{
+  width: 260px;
+  height: 440px;
+  margin-inline: 25px;
+  margin-block: 25px;
+}
+
+#background{
+  width: 100%;
+  filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1000000;
+}
