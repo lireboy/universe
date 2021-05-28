@@ -1,3 +1,7 @@
+Readme anpassen.
+Aktuelle Beschreibung des Projekts.
+
+
 Readme-Datei für die Dozenten
 
 Links zu entsprechenden Plattformen:
