@@ -1,5 +1,7 @@
 Readme anpassen.
-Aktuelle Beschreibung des Projekts.
+Aktuelle Beschreibung des Projekts/Teams.
+
+DoD hinzufügen.
 
 
 Readme-Datei für die Dozenten
