@@ -14,6 +14,7 @@ const Header = () => {
           <Link className="clickable" to="/library">Bibliothek</Link>
           <Link className="clickable" to="/news">News</Link>
           <Link className="clickable" to="/social">Social Club</Link>
+          <Link className="clickable" to="/profile">Profil</Link>
         </ul>
 
         

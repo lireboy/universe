@@ -1,4 +1,5 @@
 import './css/Library.css';
+import logo from './img/logo.png';
 
 let games = [
   {
