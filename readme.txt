@@ -1,3 +1,9 @@
+Readme anpassen.
+Aktuelle Beschreibung des Projekts/Teams.
+
+DoD hinzufügen.
+
+
 Readme-Datei für die Dozenten
 
 Links zu entsprechenden Plattformen:
