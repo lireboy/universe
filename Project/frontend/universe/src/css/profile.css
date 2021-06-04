@@ -1,5 +1,5 @@
 #profile{
-    background-color: rgba(0, 0, 0, 0.3)    ;
+    background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     width: 1000px;
     height: 100%;
@@ -59,3 +59,38 @@
     margin-left: 3%;
 }
 
+#gameList{
+  background-color: transparent;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: Roboto;
+  margin-right: 5%;
+  line-height: 1px;
+}
+
+#gameList li{  
+  list-style-type: none;
+  width: 940px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: 15%;
+  margin-left: 15%;
+}
+
+#gameList li:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#std{
+  position: flex;
+  margin-left: 400px;
+}
+
+#title{
+  position: flex;
+  margin-left: 200px;
+}
+
+#gameList img{
+  max-width: 150px;
+}
