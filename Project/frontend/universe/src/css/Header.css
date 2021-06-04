@@ -1,0 +1,73 @@
+header{
+  width: 100%;
+  height: 50px;
+  background-color: #4F4F4F;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2px;
+  z-index: 2147483647;
+}
+
+#headerNav{
+  display: flex;
+  z-index: 1000;
+  list-style-type: none;
+}
+
+#headerNav *{
+  margin-inline: 20px;
+  text-decoration: none;
+}
+
+
+
+#profileNav{
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+}
+
+#profileNav p{
+  color: white;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+#profileNav img{
+  height: 100%;
+  margin-inline: 10px;
+  border-radius: 5%;
+}
+
+
+.clickable{
+  color: white;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.clickable:hover{
+  color: #2F80ED;
+}
+
+.clickable:active{
+  filter: invert(20%) sepia(71%) saturate(915%) hue-rotate(183deg) brightness(95%) contrast(96%);
+}
+
+.clickableImg{
+  cursor: pointer;
+  height: 25px;
+}
+
+.clickableImg:hover{
+  filter: invert(45%) sepia(90%) saturate(2392%) hue-rotate(197deg) brightness(93%) contrast(99%);
+}
+
+.clickableImg:active{
+  filter: invert(20%) sepia(71%) saturate(915%) hue-rotate(183deg) brightness(95%) contrast(96%);
+}
