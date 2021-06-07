@@ -1,11 +1,11 @@
 const path = require('path');
-
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, remote } = require('electron');
 const isDev = require('electron-is-dev');
 
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
+    title: "UniVerse",
     width: 800,
     height: 600,
     minHeight: 600,
@@ -27,6 +27,8 @@ function createWindow() {
     win.webContents.openDevTools({ mode: 'detach' });
   }
 }
+
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

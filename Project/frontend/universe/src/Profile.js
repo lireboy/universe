@@ -42,26 +42,31 @@ let games = [
 
 const profile = () => {
     return(
-        <div>
+      <div className="profile_overview">
         <div id ="profile">
             <p id="userName">Willem</p>             
             <p id="info">Info:</p>
             <p id="infoText">Hier könnte ihr Text stehen.</p> 
-            <img id="userPicture" src={profilepic} alt="Profile Picture"/>        
+            <img id="profile_user_Picture" src={profilepic} alt="Profile Picture"/>        
         </div>
         <div id ="recentlyPlayed">
-        <p id="recent">Recently Played:</p>
-        <ul id="gameList">
-        {games.map((game) => {
-          return <li key={game.id}>
-            <img src= {game.img}></img>
-            <div id ="title">{game.title}</div>
-            <div id ="std">{game.hours}</div>  
-          </li>
-        })}
-      </ul>
+          <p id="recent">Recently Played:</p>
+          <ul id="gameList">
+            {games.map((game) => {
+              return <li className="profile_game_container" key={game.id}>
+                <img src={game.img}/>
+                <div className="profile_game_info">
+                  <p className="profile_game_title">{game.title}</p>
+                  <div className="profile_game_specific">
+                    <p className="profile_game_gametime">{game.hours} ingesamt</p>
+                    <p className="profile_game_lastplayed">Zuletzt gespielt am 13. Mai</p>
+                  </div>
+                </div>
+              </li>
+            })}
+          </ul>
         </div>
-        </div>
+      </div>
     )
     
 }
