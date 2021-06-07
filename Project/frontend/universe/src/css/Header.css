@@ -4,70 +4,62 @@ header{
   background-color: #4F4F4F;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  padding: 2px;
+  align-items: center;
+  padding: 5px 20px;
   z-index: 2147483647;
+  user-select: none;
+  -webkit-app-region: drag;
 }
 
-#headerNav{
-  display: flex;
-  z-index: 1000;
-  list-style-type: none;
-}
-
-#headerNav *{
-  margin-inline: 20px;
+header *{
+  -webkit-app-region: no-drag;
+  -webkit-user-drag: none; 
   text-decoration: none;
 }
 
-
-
-#profileNav{
+.right, .right *{
+  height: 100%;
   display: flex;
+  align-items: center;
+}
+
+#headerNav{
+  z-index: 1000;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.header_profile_nav{
   height: 100%;
-  align-items: flex-end;
+  width: fit-content;
+  flex-direction: row;
+  gap: 20px;
 }
 
-#profileNav p{
-  color: white;
-  cursor: pointer;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
+.header_username{
+  font-size: 20px;
 }
 
-#profileNav img{
+.header_picture{
   height: 100%;
-  margin-inline: 10px;
-  border-radius: 5%;
 }
-
 
 .clickable{
-  color: white;
+  color: gray;
   cursor: pointer;
   font-style: normal;
-  font-weight: 700;
   font-size: 22px;
 }
 
 .clickable:hover{
-  color: #2F80ED;
+  color: lightgray;
 }
 
-.clickable:active{
-  filter: invert(20%) sepia(71%) saturate(915%) hue-rotate(183deg) brightness(95%) contrast(96%);
+.clickable.active{
+  color:white;
 }
 
-.clickableImg{
-  cursor: pointer;
-  height: 25px;
-}
-
-.clickableImg:hover{
-  filter: invert(45%) sepia(90%) saturate(2392%) hue-rotate(197deg) brightness(93%) contrast(99%);
-}
-
-.clickableImg:active{
-  filter: invert(20%) sepia(71%) saturate(915%) hue-rotate(183deg) brightness(95%) contrast(96%);
+.active_picture{
+  color:white;
+  box-shadow: 0 0 1px 2px#fff;
 }
