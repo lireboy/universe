@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
         required: true
 
     },
+    name: String,
     email: {
         type: String,
         unique: true,
@@ -21,7 +22,8 @@ const UserSchema = new mongoose.Schema({
         ref: "games"
 
     }],
-    image: String
+    image: String,
+    info: String
 })
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

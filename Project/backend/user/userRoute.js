@@ -46,6 +46,19 @@ router.delete("/", isAuthenticated, async function (req, res, next) {
     })
 })
 
+router.patch("/:id", isAuthenticated, async function (req, res, next) {
+    console.log("Editing user");
+    userService.editUser(req.params.id, req.body, function (err, user) {
+        if (user) {
+            console.log("User edited!");
+            res.send(user);
+        } else {
+            console.log("Something went wrong! " + err);
+            res.send("Could not edit user!");
+        }
+    })
+})
+
 
 
 module.exports = router;

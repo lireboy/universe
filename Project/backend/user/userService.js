@@ -104,10 +104,45 @@ async function deleteUser(props, callback) {
     }
 }
 
+async function editUser(params, props, callback) {
+    if (props && params) {
+        console.log(props + params);
+        var user = await User.findOne({
+            _id: params
+        });
+        if (props.email) {
+            user.email = props.email;
+            console.log("Email changed!");
+        }
+        if (props.name) {
+            user.name = props.name;
+            console.log("Name changed!");
+        }
+        if (props.image) {
+            user.image = props.image;
+            console.log("Image changed!");
+        }
+        if (props.password) {
+            user.password = props.password;
+            console.log("Password changed!");
+        }
+
+
+        await user.save();
+        console.log("All changes have been saved!")
+        callback(null, user);
+
+    } else {
+        console.log("NO Json-Body found!");
+        callback(err, null);
+    }
+}
+
 
 module.exports = {
     findUserBy,
     getUsers,
     createUser,
-    deleteUser
+    deleteUser,
+    editUser
 }

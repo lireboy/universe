@@ -1,4 +1,6 @@
 const Game = require("./gameModel");
+const User = require("../user/userModel");
+const userService = require('../user/userService');
 
 
 async function createGame(props, callback) {
@@ -60,8 +62,39 @@ function findGameBy(searchGameId, callback) {
     }
 }
 
+async function addGameToUser(params,props,callback){
+    if(props && params){
+        console.log("Adding game: " + params + " to user: " + props.userId);
+        var game = await Game.findOne({
+            _id: params
+        });
+        userService.findUserBy(props.userId, (err, user) =>{
+            console.log("Tryingto find User for the game " + props.userId);
+            if(err){
+                callback(err,null);
+            }else{
+                console.log("User found!");
+                user.games.push(game);
+                console.log("Game pushed to User's game list");
+                user.save(function(err){
+                    if(err){
+                        console.log("Could not save game to user");
+                        return;
+                    } else {
+                        console.log("saved game to user");
+                        callback(null,game);
+                    }
+                });
+   
+            }
+        });
+        
+    }
+}
+
 module.exports = {
     findGameBy,
     getGames,
-    createGame
+    createGame,
+    addGameToUser
 }

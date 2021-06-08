@@ -1,4 +1,5 @@
 var express = require('express');
+const { isAuthenticated } = require('../Authentication/authenticationService');
 var router = express.Router();
 var gameService = require("./gameService");
 
@@ -44,4 +45,16 @@ router.post('/createGame', async function (req, res, next) {
     });
 })
 
+router.post('/:id', isAuthenticated, async function(req,res, next){
+    gameService.addGameToUser(req.params.id, req.body, function(err, game){
+        if(game){
+            console.log("Game Added to User");
+            res.send(game);
+        }else{
+            console.log("Something went wrong! " + err);
+            res.send("Could not add game to user");
+        }
+    })
+
+})
 module.exports = router;
