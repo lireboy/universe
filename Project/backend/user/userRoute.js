@@ -19,6 +19,7 @@ router.get('/', isAuthenticated, function (req, res, next) {
 
 
 })
+
 router.get("/find", isAuthenticated, async function (req, res, next) {
     console.log("Trying to find User by Id");
     userService.findUserById(req.body, function (err, user) {
@@ -28,6 +29,19 @@ router.get("/find", isAuthenticated, async function (req, res, next) {
         } else {
             console.log("Something went wrong: " + err);
             res.send('Could not find User');
+        }
+    })
+})
+
+router.delete("/", isAuthenticated, async function (req, res, next) {
+    console.log("Deleting user");
+    userService.deleteUser(req.body._id, function (err, callback) {
+        if (err) {
+            console.log("User could not be deleted!")
+            res.send("User could not be deleted!" + err);
+        } else {
+            console.log("user deleted!");
+            res.status(204).send();
         }
     })
 })

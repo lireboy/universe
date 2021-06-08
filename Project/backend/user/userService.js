@@ -91,8 +91,23 @@ function findUserBy(searchUserID, callback) {
     }
 }
 
+async function deleteUser(props, callback) {
+    if (props) {
+        console.log(props);
+        await Post.deleteOne({
+            _id: props
+        });
+        callback(null, "User has been deleted");
+    } else {
+        console.log("A user with this id could not been found!");
+        callback(err, null);
+    }
+}
+
+
 module.exports = {
     findUserBy,
     getUsers,
-    createUser
+    createUser,
+    deleteUser
 }
