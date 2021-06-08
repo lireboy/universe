@@ -1,5 +1,3 @@
-const SteamAPI = require('steamapi');
-const steam = new SteamAPI('steam token');
 const User = require("./userModel");
 
 
@@ -14,7 +12,7 @@ const User = require("./userModel");
 
 async function createUser(props, callback) {
     const {
-        userID,
+        userId,
         email,
         password
     } = props;
@@ -27,7 +25,7 @@ async function createUser(props, callback) {
         callback(err, null);
     } else {
         var user = new User({
-            userID,
+            userId,
             email,
             password
         });
@@ -55,21 +53,21 @@ function findUserBy(searchUserID, callback) {
         callback("UserID is missing");
     } else {
         var query = User.findOne({
-            userID: searchUserID
+            userId: searchUserID
         });
         query.exec(function (err, user) {
             if (err) {
-                console.log("Did not find user for UserID: " + searchUserID);
-                return callback("Did not find user for UserID: " + searchUserID, null);
+                console.log("Did not find user for userId: " + searchUserID);
+                return callback("Did not find user for userId: " + searchUserID, null);
             } else {
                 if (user) {
-                    console.log(`Found userID: ${searchUserID}`);
+                    console.log(`Found userId: ${searchUserID}`);
                     callback(null, user);
                 } else {
                     if ('admin' == searchUserID) {
                         console.log("Do not have admin account yet. Create if with default password");
                         var adminUser = new User();
-                        adminUser.userID = "admin"
+                        adminUser.userId = "admin"
                         adminUser.password = "123"
                         adminUser.userName = "Default Admin Account"
                         adminUser.isAdministrator = true
@@ -84,7 +82,7 @@ function findUserBy(searchUserID, callback) {
                         });
 
                     } else {
-                        console.log("Could not find user for UserID: " + searchUserID);
+                        console.log("Could not find user for UserId: " + searchUserID);
                         callback(null, user);
                     }
                 }

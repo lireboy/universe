@@ -1,13 +1,17 @@
 var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
-const database = require('./Universe/database/db');
+const bodyParser = require('body-parser');
+const database = require('./database/db');
 //routes
-const userRoutes = require('./Universe/user/userRoutes')
+const userRoutes = require('./user/userRoute');
+const authenticationRoutes = require('./Authentication/authenticationRoute');
+const gameRoutes = require('./games/gameRoute');
 
 
 
 const app = express();
+app.use(bodyParser.json());
 const port = 3000;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
@@ -24,6 +28,8 @@ database.initDB(function (err, db) {
 
 //used routes
 app.use('/users', userRoutes);
+app.use('/authenticate', authenticationRoutes);
+app.use('/games', gameRoutes);
 
 
 app.use(express.json());
@@ -31,6 +37,7 @@ app.use(express.urlencoded({
     extended: false
   }));
 app.use(cookieParser());
+
 
 
 

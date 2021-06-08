@@ -1,8 +1,6 @@
 var userService = require('../user/userService')
 var jwt = require("jsonwebtoken");
 var config = require("config");
-//const axios = require('axios');
-
 
 function createSessionToken(props, callback) {
     console.log("AuthenticationService: create Token");

@@ -20,7 +20,8 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "games"
 
-    }]
+    }],
+    image: String
 })
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

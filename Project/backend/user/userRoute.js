@@ -1,14 +1,13 @@
 var express = require('express');
 const {
     isAuthenticated
-} = require('../authentication/authenticationService');
+} = require('../Authentication/authenticationService');
 var router = express.Router();
 var userService = require("./userService")
 
 
 router.get('/', isAuthenticated, function (req, res, next) {
     userService.getUsers(function (err, result) {
-        //console.log("Result" + result)
         if (result) {
             res.send(Object.values(result));
 

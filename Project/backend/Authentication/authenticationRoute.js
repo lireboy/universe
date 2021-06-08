@@ -83,6 +83,7 @@ router.post('/login', function (req, res, next) {
 router.post('/createUser', async function (req, res, next) {
     console.log("Wants to create a user");
     userService.createUser(req.body, function (err, user) {
+        console.log(req.body);
         if (user) {
             console.log("User created:" + user);
             res.send(user);
