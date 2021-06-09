@@ -3,14 +3,6 @@ import {useState} from "react";
 import {ReactComponent as DownloadSVG} from "./img/svg/download.svg";
 import {ReactComponent as PlaySVG} from "./img/svg/play.svg";
 
-const SteamUser = require("steam-user");
-
-const client = SteamUser();
-
-const logInOptions = {
-  accountName: 
-}
-
 let games = [
   {
     id: 1,

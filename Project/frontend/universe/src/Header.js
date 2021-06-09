@@ -19,6 +19,8 @@ const Header = () => {
         <Link className={`clickable ${activeTab == "library" ? "active" : null}`} to="/library" onClick={() => setActiveTab("library")}>Bibliothek</Link>
         <Link className={`clickable ${activeTab == "news" ? "active" : null}`} to="/news" onClick={() => setActiveTab("news")}>News</Link>
         <Link className={`clickable ${activeTab == "social" ? "active" : null}`} to="/social" onClick={() => setActiveTab("social")}>Social</Link>
+        <Link className={`clickable ${activeTab == "loginview" ? "active" : null}`} to="/loginview" onClick={() => setActiveTab("loginview")}>Login</Link>
+        <Link className={`clickable ${activeTab == "registerview" ? "active" : null}`} to="/registerview" onClick={() => setActiveTab("registerview")}>Register</Link>
       </ul>
 
       
