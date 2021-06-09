@@ -27,7 +27,7 @@ database.initDB(function (err, db) {
 })
 
 //used routes
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 app.use('/authenticate', authenticationRoutes);
 app.use('/games', gameRoutes);
 

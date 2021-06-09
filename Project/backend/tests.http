@@ -1,9 +1,39 @@
+
+//User Tests
+
 ###
 POST http://localhost:3000/authenticate/createUser
 Content-Type: application/json
 
 {
     "userId": "test",
-    "email": "testgmail.com",
-    "password": "123"
+    "email": "default12@gmail.com",
+    "password": "default"
+}
+
+###
+POST http://localhost:3000/authenticate/login
+Content-Type: application/json
+
+{
+    "userId": "Timur",
+    "password": "360noscopeheadshotmlglolxdrofl"
+}
+
+###
+PATCH http://localhost:3000/user/60c0b405db58f3394854b0b8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGF0aSIsImlhdCI6MTYyMTYwNjY1MCwiZXhwIjoxNjIzMjI4NTU3Mjg3fQ.4HtjcsQ3Ifd2hof2gQPdTRejXUkdsYQDU6BeTCuADsk
+Content-Type: application/json
+
+{
+    "userId": "test" 
+}
+
+###
+DELETE  http://localhost:3000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGF0aSIsImlhdCI6MTYyMTYwNjY1MCwiZXhwIjoxNjIzMjI4NTU3Mjg3fQ.4HtjcsQ3Ifd2hof2gQPdTRejXUkdsYQDU6BeTCuADsk
+Content-Type: application/json
+
+{
+    "_id": "60c0b405db58f3394854b0b8"
 }

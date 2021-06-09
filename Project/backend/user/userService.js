@@ -47,10 +47,10 @@ function getUsers(callback) {
 }
 
 function findUserBy(searchUserID, callback) {
-    console.log("UserService: find user by ID: " + searchUserID);
+    console.log("UserService: find user by Id: " + searchUserID);
 
     if (!searchUserID) {
-        callback("UserID is missing");
+        callback("userId is missing");
     } else {
         var query = User.findOne({
             userId: searchUserID
@@ -83,6 +83,7 @@ function findUserBy(searchUserID, callback) {
 
                     } else {
                         console.log("Could not find user for UserId: " + searchUserID);
+                        console.log(user);
                         callback(null, user);
                     }
                 }
@@ -94,7 +95,7 @@ function findUserBy(searchUserID, callback) {
 async function deleteUser(props, callback) {
     if (props) {
         console.log(props);
-        await Post.deleteOne({
+        await User.deleteOne({
             _id: props
         });
         callback(null, "User has been deleted");
@@ -121,6 +122,10 @@ async function editUser(params, props, callback) {
         if (props.image) {
             user.image = props.image;
             console.log("Image changed!");
+        }
+        if (props.info) {
+            user.info = props.info;
+            console.log("Info changed!");
         }
         if (props.password) {
             user.password = props.password;

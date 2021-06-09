@@ -57,14 +57,14 @@ router.post('/login', function (req, res, next) {
             if (user) {
                 const {
                     id,
-                    userID,
-                    userName,
+                    userId,
+                    email,
                     ...partialObject
                 } = user;
                 const subset = {
                     id,
-                    userID,
-                    userName
+                    userId,
+                    email
                 };
                 console.log(JSON.stringify(subset))
                 res.send(subset)

@@ -10,7 +10,7 @@ function createSessionToken(props, callback) {
         callback("JSON-Body missing", null, null);
         return;
     }
-    userService.findUserBy(props.userID, function (error, user) {
+    userService.findUserBy(props.userId, function (err, user) {
         if (user) {
             console.log("Found user, check the password")
 
@@ -27,7 +27,7 @@ function createSessionToken(props, callback) {
                     var expiresAt = issueAt + (expirationTime * 1000);
                     var privateKey = config.get('session.tokenKey');
                     let token = jwt.sign({
-                        "user": user.userID
+                        "user": user.userId
                     }, privateKey, {
                         expiresIn: expiresAt,
                         algorithm: 'HS256'
