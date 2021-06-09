@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Header"
 import Library from "./Library"
 import Profile from "./Profile"
+import LoginView from "./LoginView"
+import RegisterView from "./RegisterView"
 
 import './css/App.css';
 
@@ -22,6 +24,12 @@ function App() {
               </Route>
               <Route exact path="/profile">
                 <Profile />
+              </Route>
+              <Route exact path="/LoginView">
+                <LoginView/>
+              </Route>
+              <Route exact path="/RegisterView">
+                <RegisterView/>
               </Route>
             </Switch>
           </div>
