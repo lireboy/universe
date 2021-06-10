@@ -14,27 +14,33 @@ function createSessionToken(props, callback) {
         if (user) {
             console.log("Found user, check the password")
 
-            user.comparePassword(props.password, function (err, isMatch) {
+            user.comparePassword(props.password,  function (err, isMatch) {
                 if (err) {
                     console.log("Password is invalid!");
                     callback(err, null);
 
-                } else {
-                    console.log("Password is correct!, Create token.");
+                } else{
+                    if(isMatch){
 
-                    var issueAt = new Date().getTime();
-                    var expirationTime = config.get('session.timeout');
-                    var expiresAt = issueAt + (expirationTime * 1000);
-                    var privateKey = config.get('session.tokenKey');
-                    let token = jwt.sign({
-                        "user": user.userId
-                    }, privateKey, {
-                        expiresIn: expiresAt,
-                        algorithm: 'HS256'
-                    });
-
-                    console.log("Token created: " + token);
-                    callback(null, token, user);
+                        console.log("Password is correct!, Create token.");
+    
+                        var issueAt = new Date().getTime();
+                        var expirationTime = config.get('session.timeout');
+                        var expiresAt = issueAt + (expirationTime * 1000);
+                        var privateKey = config.get('session.tokenKey');
+                        let token = jwt.sign({
+                            "user": user.userId
+                        }, privateKey, {
+                            expiresIn: expiresAt,
+                            algorithm: 'HS256'
+                        });
+    
+                        console.log("Token created: " + token);
+                        callback(null, token, user);
+                    } else{
+                        console.log("Error: Password or userId invalid!");
+                        callback("Error",null);
+                    }
                 }
             })
         }
