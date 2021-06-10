@@ -6,9 +6,9 @@ POST http://localhost:3000/authenticate/createUser
 Content-Type: application/json
 
 {
-    "userId": "test",
-    "email": "default12@gmail.com",
-    "password": "default"
+    "userId": "test33",
+    "email": "default132@gmail.com",
+    "password": "default3"
 }
 
 ###

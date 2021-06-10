@@ -47,9 +47,12 @@ UserSchema.pre('save', function (next) {
 
 UserSchema.methods.comparePassword = function (candidatePassword, next) {
     bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-        if (err)
+        if (err){
             return next(err);
-        next(null, isMatch)
+        
+      } else {
+            next(null, isMatch);
+        };
     })
 }
 const User = mongoose.model("User", UserSchema);
