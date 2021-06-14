@@ -1,4 +1,4 @@
-import './css/registerView.css';
+import '../css/registerView.css';
 import { useState } from "react";
 
 function RegisterView() {

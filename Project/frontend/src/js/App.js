@@ -6,8 +6,8 @@ import Profile from "./Profile"
 import LoginView from "./LoginView"
 import RegisterView from "./RegisterView"
 
-import './css/App.css';
-import wallpaper from "./img/wallpaper.jpg";
+import '../css/App.css';
+import wallpaper from "../img/wallpaper.jpg";
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import './css/loginView.css';
+import '../css/loginView.css';
 import { useState } from "react";
 const axios = require("axios");
 

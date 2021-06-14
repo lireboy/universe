@@ -1,11 +1,11 @@
-import './css/Header.css';
+import '../css/Header.css';
 
 import {Link} from "react-router-dom";
 import {useState} from "react";
 
-import logo from './img/logo.png';
-import settings from "./img/settings.png";
-import help from "./img/help.png";
+import logo from '../img/logo.png';
+import settings from "../img/settings.png";
+import help from "../img/help.png";
 
 import React from 'react';
 

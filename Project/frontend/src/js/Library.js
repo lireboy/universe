@@ -1,9 +1,9 @@
-import './css/Library.css';
+import '../css/Library.css';
 import {useState} from "react";
-import {ReactComponent as DownloadSVG} from "./img/svg/download.svg";
-import {ReactComponent as PlaySVG} from "./img/svg/play.svg";
+import {ReactComponent as DownloadSVG} from "../img/svg/download.svg";
+import {ReactComponent as PlaySVG} from "../img/svg/play.svg";
 
-import {getGameManifests} from "./js/showAllGames";
+import {getGameManifests} from "./showAllGames";
 let games = getGameManifests();
 console.log(games);
 let mimeType = 'image/jpg';
