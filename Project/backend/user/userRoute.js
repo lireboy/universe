@@ -1,7 +1,5 @@
 var express = require('express');
-const {
-    isAuthenticated
-} = require('../Authentication/authenticationService');
+const {isAuthenticated} = require('../Authentication/authenticationService');
 var router = express.Router();
 var userService = require("./userService")
 

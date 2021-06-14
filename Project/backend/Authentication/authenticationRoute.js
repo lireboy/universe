@@ -50,21 +50,25 @@ router.post('/login', function (req, res, next) {
 
     console.log("Want to create token")
 
+    if(!req.body["userId"] || !req.body.password){
+        res.statusCode = "500";
+        res.send("No");
+    }
+        
+
     authenticationService.createSessionToken(req.body, function (err, token, user) {
         if (token) {
             res.header("Authorization", "Bearer" + token);
 
             if (user) {
                 const {
-                    id,
                     userId,
                     email,
-                    ...partialObject
                 } = user;
                 const subset = {
-                    id,
                     userId,
-                    email
+                    email,
+                    token
                 };
                 console.log(JSON.stringify(subset))
                 res.send(subset)

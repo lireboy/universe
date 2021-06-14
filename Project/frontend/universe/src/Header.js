@@ -11,7 +11,7 @@ import React from 'react';
 
 const Header = () => {
 
-  const [activeTab, setActiveTab] = useState("library");
+  const [activeTab, setActiveTab] = useState(null);
 
   return ( 
     <header>

@@ -2,6 +2,8 @@ const path = require('path');
 const { app, BrowserWindow, remote } = require('electron');
 const isDev = require('electron-is-dev');
 
+console.log("test");
+
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -12,6 +14,7 @@ function createWindow() {
     minWidth: 800,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false
     },
   });
 

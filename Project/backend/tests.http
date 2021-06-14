@@ -2,22 +2,29 @@
 //User Tests
 
 ###
-POST http://localhost:3000/authenticate/createUser
+POST http://localhost:8080/authenticate/createUser
 Content-Type: application/json
 
 {
-    "userId": "test33",
-    "email": "default132@gmail.com",
-    "password": "default3"
+    "userId": "testuser",
+    "email": "testuser@gmail.com",
+    "password": "pass"
 }
 
 ###
-POST http://localhost:3000/authenticate/login
+POST http://localhost:8080/authenticate/login
 Content-Type: application/json
 
 {
-    "userId": "Timur",
-    "password": "360noscopeheadshotmlglolxdrofl"
+    "userId": "testuser",
+    "password": "pass"
+}
+
+###
+POST http://localhost:8080/authenticate/login
+Content-Type: application/json
+
+{
 }
 
 ###

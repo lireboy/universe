@@ -1,5 +1,8 @@
 import './css/loginView.css';
 import { useState } from "react";
+const axios = require("axios");
+
+
 
 function LoginView() {
     const [userName, setUser] = useState("");
@@ -9,12 +12,26 @@ function LoginView() {
         return userName.length > 0 && password.length > 0;
     }
 
-    const submitHandler = e => {
-        e.prevetDefault();
+    function formPreventDefault(e){ 
+        e.preventDefault();
+        console.log("trying to login user");
+        axios.post("http://localhost:8080/authenticate/login", {
+            headers: {
+                'content-type': 'application/json',
+              },    
+            "userId": userName,
+            "password": password
+        })
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     return (
-        <form>
+        <form onSubmit={formPreventDefault}>
             <div className="login">
                 <p id="title">Login</p>
                 <div id="handler">

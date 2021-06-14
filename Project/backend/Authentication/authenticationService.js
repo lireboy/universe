@@ -44,6 +44,9 @@ function createSessionToken(props, callback) {
                 }
             })
         }
+        else{
+            callback(err);
+        }
     })
 }
 
