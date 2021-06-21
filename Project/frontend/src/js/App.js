@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./Header"
-import Library from "./Library"
+import SteamLibrary from "./SteamLibrary"
 import Profile from "./Profile"
 import LoginView from "./LoginView"
 import RegisterView from "./RegisterView"
@@ -16,8 +16,8 @@ function App() {
           <Header />
           <div className="content">
             <Switch>
-              <Route exact path="/library">
-                <Library />
+              <Route exact path="/SteamLibrary">
+                <SteamLibrary />
               </Route>
               <Route exact path="/profile">
                 <Profile />
