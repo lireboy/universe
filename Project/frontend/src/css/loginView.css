@@ -61,6 +61,8 @@ input[type="text"]:focus {
   color: white;
   background-color: rgba(51, 51, 51, 0.5);
   box-shadow: none;
+  outline: none !important;
+  border: solid 2px #353535;
 }
 input[type="text"]:focus-within {
   color: lightgray;
@@ -78,6 +80,8 @@ input[type="password"] {
 input[type="password"]:focus {
   background-color: rgba(51, 51, 51, 0.5);
   box-shadow: none;
+  border: solid 2px #353535;
+  outline: none !important;
 }
 input[type="password"]:focus-within {
   color: lightgray;

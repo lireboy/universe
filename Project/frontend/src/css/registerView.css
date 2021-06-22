@@ -10,10 +10,11 @@
     position: relative;
 }
 .title {
-    display: block;
+    display: flex;
     align-self: center;
     font-size: 40px;
     margin-bottom: 2%;
+    margin-top: 50px;
 }
 .handler {
     padding: 1% 10% 2% 10%;
