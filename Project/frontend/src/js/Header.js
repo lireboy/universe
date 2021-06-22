@@ -17,9 +17,10 @@ const Header = () => {
   return (
     <header>
       <ul id="headerNav">
-        <NavDropdown.Divider />
-        <NavDropdown className="nav-dropdown" title="Bibliothek" id="basic-nav-dropdown" >
-          <NavDropdown.Item><Link className={`clickable ${activeTab == "steamlibrary" ? "active" : null}`} to="/steamlibrary" onClick={() => setActiveTab("steamlibrary")}>Steam</Link></NavDropdown.Item>
+        <NavDropdown title="Bibliothek" id="nav" className="nav-dropdown">
+          <NavDropdown.Item className="dropdown-item">
+            <Link className={`clickable ${activeTab == "steamlibrary" ? "active" : null}`} to="/steamlibrary" onClick={() => setActiveTab("steamlibrary")}>Steam</Link>
+          </NavDropdown.Item>
         </NavDropdown>
         <Link className={`clickable ${activeTab == "news" ? "active" : null}`} to="/news" onClick={() => setActiveTab("news")}>News</Link>
         <Link className={`clickable ${activeTab == "social" ? "active" : null}`} to="/social" onClick={() => setActiveTab("social")}>Social</Link>
