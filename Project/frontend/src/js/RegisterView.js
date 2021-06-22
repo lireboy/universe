@@ -1,4 +1,4 @@
-import '../css/registerView.css';
+import '../css/RegisterView.css'
 import { useState } from "react";
 
 function RegisterView() {
@@ -18,30 +18,30 @@ function RegisterView() {
 
     return (
         <form>
-            <div className="login">
-                <p id="title">Registrieren</p>
-                <div id="handler">
+            <div className="register">
+                <div className="title">Registrieren</div>
+                <div className="handler">
                     <label htmlFor="name">Username:</label>
                     <input type="text" name="name" id="name" value={userName} onChange={(e) => setUser(e.target.value)} />
                 </div>
-                <div id="handler">
+                <div className="handler">
                     <label htmlFor="name">E-Mail:</label>
                     <input type="text" name="name" id="name" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                <div id="handler">
+                <div className="handler">
                     <label htmlFor="name">E-Mail bestätigen:</label>
                     <input type="text" name="name" id="name" value={confirmEmail} onChange={(e) => setConfirmEmail(e.target.value)} />
                 </div>
-                <div id="handler">
+                <div className="handler">
                     <label htmlFor="password">Password:</label>
                     <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <div id="handler">
+                <div className="handler">
                     <label htmlFor="password">Password bestätigen:</label>
                     <input type="password" name="password" id="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 </div>
-                <div id="loginHandler">
-                    <input type="submit" value="Register" disabled={!validateForm()} />
+                <div className="loginHandler">
+                    <input type="submit" value="Registrieren" disabled={!validateForm()} />
                 </div>
             </div>
         </form>

@@ -33,16 +33,16 @@ function LoginView() {
     return (
         <form onSubmit={formPreventDefault}>
             <div className="login">
-                <p id="title">Login</p>
-                <div id="handler">
+                <div className="title">Login</div>
+                <div className="handler">
                     <label htmlFor="name">Username:</label>
                     <input type="text" name="name" id="name" value={userName} onChange={(e) => setUser(e.target.value)} />
                 </div>
-                <div id="handler">
+                <div className="handler">
                     <label htmlFor="password">Password:</label>
                     <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <div id="loginHandler">
+                <div className="loginHandler">
                     <input type="submit" value="Login" disabled={!validateForm()} />
                 </div>
             </div>
