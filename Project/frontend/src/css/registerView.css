@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .register {
     width: 100%;
     align-self: center;
@@ -18,4 +19,19 @@
 }
 .handler {
     padding: 1% 10% 2% 10%;
+=======
+*{
+  font-family: Roboto;
+  }
+
+.login{
+  width: 900px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+>>>>>>> 469be19ce401ec1407b0f4f2d4db9ef07846bf7c
 }
