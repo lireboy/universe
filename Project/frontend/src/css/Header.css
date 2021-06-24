@@ -30,11 +30,28 @@ header *{
   gap: 20px;
 }
 
+#nav {
+  color: gray;
+}
+
+#nav:hover {
+  color: lightgray;
+}
+
+.nav-dropdown .dropdown-menu {
+  background-color: #333333;
+  width: 100px;
+}
+
 .header_profile_nav{
   height: 100%;
   width: fit-content;
   flex-direction: row;
   gap: 20px;
+}
+
+.dropdown {
+  font-size: 22px;
 }
 
 .header_username{
