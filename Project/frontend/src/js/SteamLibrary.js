@@ -45,7 +45,7 @@ const Library = () => {
 
 function GameDetailView([currentGame, setCurrentGame]){
   return(
-    <div>
+    <div className="game-detail-view">
       <div className={`game_detail ${currentGame.game.installed?"installed":"notinstalled"}`}>
         <img className="game_detail_pic" src={`data:${mimeType};base64,${currentGame.game.banner}`} alt={currentGame.game.title}/>
         <div className="game_detail_info">
@@ -54,8 +54,8 @@ function GameDetailView([currentGame, setCurrentGame]){
         </div>
         
         <nav className="button_nav">
-          <button className="button play" onClick={() => startGame(currentGame.game.appid)}>Spielen</button>
-          <button className="button back">Zurück</button>
+          <button className="play" onClick={() => startGame(currentGame.game.appid)}>Spielen</button>
+          <button className="back">Zurück</button>
         </nav>
       </div>
       <div className="game_detail_background" onClick={() => setCurrentGame(null)}/>

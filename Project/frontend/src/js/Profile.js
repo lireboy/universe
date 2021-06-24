@@ -40,14 +40,19 @@ let games = [
   }
 ];
 
-const profile = () => {
+const profile = (props) => {
     return(
       <div className="profile_overview">
-        <div id ="profile">
-            <p id="userName">Willem</p>             
-            <p id="info">Info:</p>
-            <p id="infoText">Hier könnte ihr Text stehen.</p> 
-            <img id="profile_user_Picture" src={profilepic} alt="Profile Picture"/>        
+        <div className="profile">
+          <div className="left">
+              <img id="profile_user_Picture" src={profilepic} alt="Profile Picture"/>        
+          </div>
+          <div className="right">
+              <p className="big">{props.activeUser.name}</p>             
+              <p className="medium">Info:</p>
+              <p className="small">{props.activeUser.info}</p> 
+              <p className="small">{props.activeUser.email}</p>   
+          </div>
         </div>
         <div id ="recentlyPlayed">
           <p id="recent">Recently Played:</p>

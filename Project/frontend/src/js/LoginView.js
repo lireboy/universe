@@ -1,12 +1,19 @@
 import '../css/loginView.css';
-import { useState } from "react";
+import { useState, Component } from "react";
+import { header } from './App';
+import person from "../img/svg/person.svg";
+import lock from "../img/svg/lock.svg";
 const axios = require("axios");
 
 
-
-function LoginView() {
+const LoginView = (props) => {
     const [userName, setUser] = useState("");
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [confirmEmail, setConfirmEmail] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const [registerMode, setRegisterMode] = useState(false);
 
     function validateForm() {
         return userName.length > 0 && password.length > 0;
@@ -23,7 +30,7 @@ function LoginView() {
             "password": password
         })
         .then(res => {
-            console.log(res.data);
+            props.setActiveUser(res.data);
         })
         .catch(err => {
             console.log(err);
@@ -33,18 +40,30 @@ function LoginView() {
     return (
         <form onSubmit={formPreventDefault}>
             <div className="login">
-                <div className="title">Login</div>
+                <div className="title">{registerMode === true ? "Register" : "Login"}</div>
                 <div className="handler">
-                    <label htmlFor="name">Username:</label>
-                    <input type="text" name="name" id="name" value={userName} onChange={(e) => setUser(e.target.value)} />
+                    <img src={person} alt="" />
+                    <input placeholder="Username"  type="text" name="name" value={userName} onChange={(e) => setUser(e.target.value)} />
                 </div>
                 <div className="handler">
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <img src={lock} alt="" />
+                    <input placeholder="Password" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <div className="loginHandler">
-                    <input type="submit" value="Login" disabled={!validateForm()} />
+                <div className={`register-handler ${registerMode !== true ? "hidden" : ""}`}>
+                    <div className="handler">
+                        <input placeholder="Confirm Password" type="password" name="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                    </div>
+                    <div className="handler">
+                        <input placeholder="Email" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                    <div className="handler">
+                        <input placeholder="Confirm Email" type="email" name="emailConfirm" value={confirmEmail} onChange={(e) => setConfirmEmail(e.target.value)} />
+                    </div>       
                 </div>
+                <nav className="buttons">
+                    <button className="submit" type="submit" value="Login" disabled={!validateForm()}>{registerMode === true ? "REGISTER" : "LOGIN"}</button>
+                    <button className="showRegister" type="button" onClick={() => setRegisterMode(!registerMode)}>{registerMode === true ? "BACK" : "REGISTER"}</button>
+                </nav>
             </div>
         </form>
     )

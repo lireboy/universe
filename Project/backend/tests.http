@@ -46,7 +46,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/user
+GET http://localhost:8080/user
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGF0aSIsImlhdCI6MTYyMTYwNjY1MCwiZXhwIjoxNjIzMjI4NTU3Mjg3fQ.4HtjcsQ3Ifd2hof2gQPdTRejXUkdsYQDU6BeTCuADsk
 
 ###

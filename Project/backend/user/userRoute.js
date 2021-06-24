@@ -4,7 +4,7 @@ var router = express.Router();
 var userService = require("./userService")
 
 
-router.get('/', isAuthenticated, function (req, res, next) {
+router.get('/', function (req, res, next) {
     userService.getUsers(function (err, result) {
         if (result) {
             res.send(Object.values(result));

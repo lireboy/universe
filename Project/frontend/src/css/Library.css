@@ -108,7 +108,7 @@
   transition: all 0.2s;
 }
 
-.button_nav{
+.game-detail-view .button_nav{
   display: flex;
   justify-content: space-between;
   margin: 30px;
@@ -119,7 +119,7 @@
   
 }
 
-.button{
+.game-detail-view button{
   color: #fff;
   border: none;
   width: 200px;
@@ -131,18 +131,18 @@
   transition: all 0.05s;
 }
 
-button:active{
+.game-detail-view button:active{
   filter: brightness(50%);
   width: 196px;
   height: 46px;
   margin: 2px;
 }
 
-.button:hover{
+.game-detail-view button:hover{
   filter: brightness(120%);
 }
 
-button:active{
+.game-detail-view button:active{
   /* TODO */
   filter: brightness(50%);
   width: 196px;
@@ -150,11 +150,11 @@ button:active{
   margin: 2px;
 }
 
-.button.play{
+.game-detail-view button.play{
   background-color: green;
 }
 
-.button.back{
+.game-detail-view button.back{
   background-color: rgb(0, 110, 255);
 }
 
