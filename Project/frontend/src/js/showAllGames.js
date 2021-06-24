@@ -4,7 +4,7 @@ const path = require("path");
 
 export function getGameManifests() {
   let games = [];
-  let defaultPath = path.join("D:\\Program Files (x86)\\Steam");
+  let defaultPath = path.join("D:\\Programme\\Steam");
   const librarycache = path.join(defaultPath, "\\appcache\\librarycache");
   const libraryFolders = path.join(defaultPath, "\\steamapps");
 

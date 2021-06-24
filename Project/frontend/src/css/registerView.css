@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+.register {
+    width: 100%;
+    align-self: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+.title {
+    display: flex;
+    align-self: center;
+    font-size: 40px;
+    margin-bottom: 2%;
+    margin-top: 50px;
+}
+.handler {
+    padding: 1% 10% 2% 10%;
+=======
 *{
   font-family: Roboto;
   }
@@ -11,50 +33,5 @@
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+>>>>>>> 469be19ce401ec1407b0f4f2d4db9ef07846bf7c
 }
-
-#title{
-  display: block;
-  font-size: 40px;
-  float: right;
-  margin-left: 40%;
-  margin-top: 15%;
-}
-
-#handler{
-  position: relative;
-  height: auto;
-  float: right;
-  margin: 20px 20px;
-}
-
-#handler:focus-within label {
-  color:brown
-}
-
-#handler input {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  border-radius: 8px;
-}
-
-#handler input {
-  color:black;
-}
-
-#loginHandler{
-  position: relative;
-  height: auto;
-  float: right;
-  margin: 20px 20px;
-}
-
-#loginHandler input {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background-color: black;
-}
-

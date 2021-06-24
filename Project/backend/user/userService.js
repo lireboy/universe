@@ -48,7 +48,6 @@ function getUsers(callback) {
 
 function findUserBy(searchUserID, callback) {
     console.log("UserService: find user by Id: " + searchUserID);
-
     if (!searchUserID) {
         callback("userId is missing");
     } else {
