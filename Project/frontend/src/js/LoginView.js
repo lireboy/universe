@@ -1,13 +1,12 @@
 import '../css/loginView.css';
-import { useState, Component } from "react";
-import { header } from './App';
+import { useState } from "react";
 import person from "../img/svg/person.svg";
 import lock from "../img/svg/lock.svg";
 const axios = require("axios");
 
 
 const LoginView = (props) => {
-    const [userName, setUser] = useState("");
+    const [username, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
@@ -16,7 +15,7 @@ const LoginView = (props) => {
     const [registerMode, setRegisterMode] = useState(false);
 
     function validateForm() {
-        return userName.length > 0 && password.length > 0;
+        return username.length > 0 && password.length > 0;
     }
 
     function formPreventDefault(e){ 
@@ -26,11 +25,15 @@ const LoginView = (props) => {
             headers: {
                 'content-type': 'application/json',
               },    
-            "userId": userName,
+            "userId": username,
             "password": password
         })
         .then(res => {
-            props.setActiveUser(res.data);
+            console.log(res.data);
+            if(res.data !== "Could not create token" && "userId" in res.data && "token" in res.data)
+                res.data["steampath"] = "C:\\Program Files (x86)\\Steam";
+                console.log(res.data);
+                props.setActiveUser(res.data);
         })
         .catch(err => {
             console.log(err);
@@ -43,7 +46,7 @@ const LoginView = (props) => {
                 <div className="title">{registerMode === true ? "Register" : "Login"}</div>
                 <div className="handler">
                     <img src={person} alt="" />
-                    <input placeholder="Username"  type="text" name="name" value={userName} onChange={(e) => setUser(e.target.value)} />
+                    <input placeholder="username"  type="text" name="name" value={username} onChange={(e) => setUser(e.target.value)} />
                 </div>
                 <div className="handler">
                     <img src={lock} alt="" />
@@ -72,11 +75,11 @@ const LoginView = (props) => {
 export default LoginView;
 
 /* export default function LoginView() {
-    const [userName, setUser] = useState("");
+    const [username, setUser] = useState("");
     const [password, setPassword] = useState("");
 
     function validateForm() {
-        return userName.length > 0 && password.length > 0;
+        return username.length > 0 && password.length > 0;
     }
 
     function handleSubmit(event) {
@@ -86,11 +89,11 @@ export default LoginView;
     return (
         <div className="Login">
             <Form onSubmit={handleSubmit}>
-                <Form.Group size="lg" controllId="userName">
+                <Form.Group size="lg" controllId="username">
                 <div id="prompttext">
                     <Form.Label>User:</Form.Label>
                     </div>
-                        <Form.Control autoFocus type="email" value={userName} onChange={(e) => setUser(e.target.value)}
+                        <Form.Control autoFocus type="email" value={username} onChange={(e) => setUser(e.target.value)}
                         />
 
                 </Form.Group>

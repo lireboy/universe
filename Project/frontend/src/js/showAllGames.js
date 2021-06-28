@@ -2,9 +2,9 @@ var fs = window.require("fs");
 var lineReader = window.require("line-reader");
 const path = require("path");
 
-export function getGameManifests() {
+export function getGameManifests(steampath="C:\\Program Files (x86)\\Steam") {
   let games = [];
-  let defaultPath = path.join("D:\\Programme\\Steam");
+  let defaultPath = path.join(steampath);
   const librarycache = path.join(defaultPath, "\\appcache\\librarycache");
   const libraryFolders = path.join(defaultPath, "\\steamapps");
 
@@ -50,6 +50,5 @@ export function getGameManifests() {
     }
     lineCount++;
   });
-
   return games;
 };

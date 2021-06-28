@@ -42,7 +42,7 @@ class App extends Component {
             <div className="content">
               <Switch>
                 <Route exact path="/SteamLibrary">
-                  <SteamLibrary />
+                  <SteamLibrary activeUser={this.state.activeUser}/>
                 </Route>
                 <Route exact path="/profile">
                   <Profile activeUser={this.state.activeUser}></Profile>
