@@ -26,6 +26,17 @@ const UserSchema = new mongoose.Schema({
         ref: "Game"
 
     }],
+    steampath: {
+       type: String,
+       deafult: "C:\\Program Files (x86)\\Steam"
+
+    }, 
+
+    originpath: {
+        type: String,
+        deafult: ""
+ 
+     },
     image: String,
     info: {
         type: String,

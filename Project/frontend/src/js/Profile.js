@@ -1,5 +1,6 @@
 import '../css/profile.css';
 import profilepic from '../img/profilepicture.png';
+import settings from '../img/svg/settings.svg';
 
 let games = [
   {
@@ -45,7 +46,8 @@ const profile = (props) => {
       <div className="profile_overview">
         <div className="profile">
           <div className="left">
-              <img id="profile_user_Picture" src={profilepic} alt="Profile Picture"/>        
+              <img className="profile-picture" id="profile_user_Picture" src={profilepic} alt=""/> 
+              <img className={`clickable ${props["activeTab"] === "settings" ? "active" : null}`} to="/settings" onClick={() => props.setActiveTab("settings")} alt="" src={settings} />      
           </div>
           <div className="right">
               <p className="big">{props.activeUser.name}</p>             

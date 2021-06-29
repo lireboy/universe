@@ -5,6 +5,7 @@ import SteamLibrary from "./SteamLibrary"
 import Profile from "./Profile"
 import LoginView from "./LoginView"
 import RegisterView from "./RegisterView"
+import Settings from "./SettingsView"
 
 import '../css/App.css';
 import wallpaper from "../img/wallpaper.jpg";
@@ -16,7 +17,8 @@ class App extends Component {
     super();
     this.state = {
         activeTab: "news",
-        activeUser: null
+        activeUser: null,
+        activeSettings: ""
     };
     this.setActiveTab = tabname => {
       this.setState({
@@ -26,7 +28,12 @@ class App extends Component {
     this.setActiveUser = user => {
       this.setState({
         activeUser: user
-      })
+      });
+      this.setActiveSettings = settingsName => {
+        this.setState({
+          activeSettings: settingsName
+        });
+      }
       
     }
   }
@@ -47,9 +54,13 @@ class App extends Component {
                 <Route exact path="/profile">
                   <Profile activeUser={this.state.activeUser}></Profile>
                 </Route>
+                <Route exact path="/settings">
+                  <Settings activeUser={this.state.activeUser}></Settings>
+                </Route>
+
               </Switch>
             </div>
-            <img id="background" src={wallpaper} />
+            <img id="background" src={wallpaper} alt="" />
           </div>
         </Router>
       );
@@ -58,7 +69,7 @@ class App extends Component {
       return (
         <div className="App">
           <LoginView setActiveUser={this.setActiveUser}></LoginView>
-          <img id="background" src={wallpaper} />
+          <img id="background" src={wallpaper} alt="" />
         </div>
       );  
     }
