@@ -29,7 +29,7 @@ const Header = (props) => {
           <div className="right">
             <Link className="header_profile_nav" to="/profile" onClick={() => props.setActiveTab("profile")}>
               <p className={`header_username clickable ${props["activeTab"] === "profile" ? "active" : null}`}>{props.activeUser.userId}</p>
-              <img className={`header_picture ${props["activeTab"] === "profile" ? "active_picture" : null}`} src={logo} alt="Profile Picture" />
+              <img className={`header_picture ${props["activeTab"] === "profile" ? "active_picture" : null}`} src={logo} alt="" />
             </Link>
           </div>
       </header>

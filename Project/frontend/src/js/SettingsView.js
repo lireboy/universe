@@ -2,6 +2,7 @@ import '../css/settings.css';
 import { useState } from "react";
 const axios = require("axios");
 
+
 const Settings = (props) => {
 
     const [steampath, setSteampath] = useState("");

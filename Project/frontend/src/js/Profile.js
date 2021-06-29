@@ -1,6 +1,8 @@
 import '../css/profile.css';
+import React from 'react';
 import profilepic from '../img/profilepicture.png';
 import settings from '../img/svg/settings.svg';
+import { Link } from "react-router-dom";
 
 let games = [
   {
@@ -47,7 +49,9 @@ const profile = (props) => {
         <div className="profile">
           <div className="left">
               <img className="profile-picture" id="profile_user_Picture" src={profilepic} alt=""/> 
-              <img className={`clickable ${props["activeTab"] === "settings" ? "active" : null}`} to="/settings" onClick={() => props.setActiveTab("settings")} alt="" src={settings} />      
+              <Link className="icon-settings" to="/settings" onClick={() => props.setActiveTab("settings")}>
+                <img className={`icon-settings ${props["activeTab"] === "settings" ? "active" : null}`} src={settings} alt="" />
+              </Link>    
           </div>
           <div className="right">
               <p className="big">{props.activeUser.name}</p>             
@@ -61,7 +65,7 @@ const profile = (props) => {
           <ul id="gameList">
             {games.map((game) => {
               return <li className="profile_game_container" key={game.id}>
-                <img src={game.img}/>
+                <img src={game.img} alt=""/>
                 <div className="profile_game_info">
                   <p className="profile_game_title">{game.title}</p>
                   <div className="profile_game_specific">
