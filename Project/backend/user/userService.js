@@ -104,11 +104,11 @@ async function deleteUser(props, callback) {
     }
 }
 
-async function editUser(params, props, callback) {
-    if (props && params) {
-        console.log(props + params);
+async function editUser(userId, props, callback) {
+    if (props && userId) {
+        console.log(props + userId);
         var user = await User.findOne({
-            _id: params
+            userId: userId
         });
         if (props.email) {
             user.email = props.email;
@@ -129,6 +129,14 @@ async function editUser(params, props, callback) {
         if (props.password) {
             user.password = props.password;
             console.log("Password changed!");
+        }
+        if (props.steampath) {
+            user.steampath = props.steampath;
+            console.log("Steampath changed!");
+        }
+        if (props.originpath) {
+            user.originpath = props.originpath;
+            console.log("Originpath changed!");
         }
 
 

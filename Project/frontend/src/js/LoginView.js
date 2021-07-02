@@ -2,6 +2,7 @@ import '../css/loginView.css';
 import { useState } from "react";
 import person from "../img/svg/person.svg";
 import lock from "../img/svg/lock.svg";
+import {getGameManifests} from "./showAllGames";
 const axios = require("axios");
 
 
@@ -30,10 +31,11 @@ const LoginView = (props) => {
         })
         .then(res => {
             console.log(res.data);
-            if(res.data !== "Could not create token" && "userId" in res.data && "token" in res.data)
-                res.data["steampath"] = "C:\\Program Files (x86)\\Steam";
+            if("userId" in res.data && "token" in res.data)
                 console.log(res.data);
-                props.setActiveUser(res.data);
+                let activeUser = res.data;
+                activeUser.games = getGameManifests(activeUser.steampath);
+                props.setActiveUser(activeUser);
         })
         .catch(err => {
             console.log(err);
@@ -46,7 +48,7 @@ const LoginView = (props) => {
                 <div className="title">{registerMode === true ? "Register" : "Login"}</div>
                 <div className="handler">
                     <img src={person} alt="" />
-                    <input placeholder="username"  type="text" name="name" value={username} onChange={(e) => setUser(e.target.value)} />
+                    <input placeholder="Username"  type="text" name="name" value={username} onChange={(e) => setUser(e.target.value)} />
                 </div>
                 <div className="handler">
                     <img src={lock} alt="" />

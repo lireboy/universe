@@ -19,6 +19,7 @@
     "react-scripts": "4.0.3",
     "remote": "^0.2.6",
     "steam-user": "^4.19.10",
+    "steamapi": "^2.1.3",
     "web-vitals": "^1.1.2"
   },
   "main": "public/electron.js",

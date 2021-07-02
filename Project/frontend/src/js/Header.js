@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import logo from '../img/logo.png';
 
 import React from 'react';
+import { useState } from "react";
 
 const Header = (props) => {
   let activeUser = props["activeUser"];
@@ -14,13 +15,8 @@ const Header = (props) => {
     return(
       <header>
         <ul id="headerNav" className={`${props["activeUser"] === null ? "header hidden" : null}`}>
-            <NavDropdown title="Bibliothek" id="nav" className="nav-dropdown">
-              <NavDropdown.Item className="dropdown-item">
-                <Link className={`clickable ${props["activeTab"] === "steamlibrary" ? "active" : null}`} to="/steamlibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Link>
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Link className={`clickable ${props["activeTab"] === "news" ? "active" : null}`} to="/news" onClick={() => props.setActiveTab("news")}>News</Link>
-            <Link className={`clickable ${props["activeTab"] === "social" ? "active" : null}`} to="/social" onClick={() => props.setActiveTab("social")}>Social</Link>
+          <Link className={`clickable ${props["activeTab"] === "steamlibrary" ? "active" : null}`} to="/steamlibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Link>
+          <Link className={`clickable ${props["activeTab"] === "originlibrary" ? "active" : null}`} to="/originlibrary" onClick={() => props.setActiveTab("originlibrary")}>Origin</Link>
             <button style={{color: "black"}} onClick={() => props.setActiveUser(null)}>Logout</button>
           </ul>
 

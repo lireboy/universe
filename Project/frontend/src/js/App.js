@@ -33,8 +33,7 @@ class App extends Component {
         this.setState({
           activeSettings: settingsName
         });
-      }
-      
+      }  
     }
   }
 
@@ -45,14 +44,14 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
-            <Header activeUser={this.state.activeUser} activeTab={this.state.activeTab} setActiveTab={this.setActiveTab} setActiveUser={this.setActiveUser}></Header>
             <div className="content">
+              <Header activeUser={this.state.activeUser} activeTab={this.state.activeTab} setActiveTab={this.setActiveTab} setActiveUser={this.setActiveUser}></Header>
               <Switch>
                 <Route exact path="/SteamLibrary">
                   <SteamLibrary activeUser={this.state.activeUser}/>
                 </Route>
                 <Route exact path="/profile">
-                  <Profile activeUser={this.state.activeUser}></Profile>
+                  <Profile activeUser={this.state.activeUser} setActiveTab={this.setActiveTab}></Profile>
                 </Route>
                 <Route exact path="/settings">
                   <Settings activeUser={this.state.activeUser}></Settings>

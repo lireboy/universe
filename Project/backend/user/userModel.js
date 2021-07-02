@@ -28,13 +28,13 @@ const UserSchema = new mongoose.Schema({
     }],
     steampath: {
        type: String,
-       deafult: "C:\\Program Files (x86)\\Steam"
+       default: "C:\\Program Files (x86)\\Steam"
 
     }, 
 
     originpath: {
         type: String,
-        deafult: ""
+        default: ""
  
      },
     image: String,

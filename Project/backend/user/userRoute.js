@@ -44,9 +44,9 @@ router.delete("/", isAuthenticated, async function (req, res, next) {
     })
 })
 
-router.patch("/:id", isAuthenticated, async function (req, res, next) {
+router.patch("/:kartoffel", async function (req, res) {
     console.log("Editing user");
-    userService.editUser(req.params.id, req.body, function (err, user) {
+    userService.editUser(req.params.kartoffel, req.body, function (err, user) {
         if (user) {
             console.log("User edited!");
             res.send(user);

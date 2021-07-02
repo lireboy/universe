@@ -1,15 +1,39 @@
 import '../css/settings.css';
 import { useState } from "react";
+import {getGameManifests} from "./showAllGames";
 const axios = require("axios");
 
 
 const Settings = (props) => {
 
-    const [steampath, setSteampath] = useState("");
-    const [originpath, setOriginpath] = useState("");
+    const [steampath, setSteampath] = useState(props.activeUser.steampath);
+    const [originpath, setOriginpath] = useState(props.activeUser.originpath);
+
+    function formPreventDefault(e){ 
+        e.preventDefault();
+        console.log("trying to edit user");
+        axios.patch("http://localhost:8080/user/" + props.activeUser.userId, {
+            headers: {
+                'content-type': 'application/json',
+              },    
+            "steampath": steampath,
+            "originpath": originpath
+        })
+        .then(res => {
+            console.log(res.data);
+            props.activeUser.steampath = steampath;
+            props.activeUser.originpath = originpath;
+            props.activeUser.games = getGameManifests(steampath);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
+
     return(
       <div className="settings_overview">
-          <div className="settings-container">
+          <form className="settings-container" onSubmit={formPreventDefault}>
             <div className="title">
                 Settings
             </div>
@@ -27,11 +51,8 @@ const Settings = (props) => {
                     <input placeholder="C:\\Program Files (x86)\\Origin Games"  type="text" name="name" value={originpath} onChange={(e) => setOriginpath(e.target.value)} />
                 </div>
             </div>
-
-          </div>
-
-
-      
+            <button className="submit" type="submit" value="Save Settings">Save Settings</button>
+          </form>
       </div>
     )
     

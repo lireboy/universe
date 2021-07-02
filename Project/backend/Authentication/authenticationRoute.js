@@ -26,12 +26,16 @@ router.post('/loginBasic', async function (req, res, next) {
                     id,
                     userID,
                     userName,
+                    steampath,
+                    originpath,
                     ...partialObject
                 } = user;
                 const subset = {
                     id,
                     userID,
-                    userName
+                    userName,
+                    steampath,
+                    originpath
                 };
                 console.log(JSON.stringify(subset))
                 res.send(subset)
@@ -65,7 +69,9 @@ router.post('/login', function (req, res, next) {
                     name,
                     userId,
                     info,
-                    email
+                    email,
+                    steampath,
+                    originpath
                 } = user;
                 const subset = {
                     userId,
@@ -73,6 +79,8 @@ router.post('/login', function (req, res, next) {
                     token,
                     name,
                     info,
+                    steampath,
+                    originpath
                 };
                 console.log(JSON.stringify(subset))
                 res.send(subset)
