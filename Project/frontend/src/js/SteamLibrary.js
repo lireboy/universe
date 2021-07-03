@@ -1,9 +1,6 @@
 import '../css/Library.css';
 import {useState} from "react";
-import {ReactComponent as DownloadSVG} from "../img/svg/download.svg";
-import {ReactComponent as PlaySVG} from "../img/svg/play.svg";
 let steam = require("steam-provider");
-let steamuser = require("steam-user");
 
 let mimeType = 'image/jpg';
 

@@ -2,9 +2,8 @@ import '../css/loginView.css';
 import { useState } from "react";
 import person from "../img/svg/person.svg";
 import lock from "../img/svg/lock.svg";
-import {getGameManifests} from "./showAllGames";
+import {getGameManifests, getUbisoftGames} from "./showAllGames";
 const axios = require("axios");
-
 
 const LoginView = (props) => {
     const [username, setUser] = useState("");
@@ -35,6 +34,7 @@ const LoginView = (props) => {
                 console.log(res.data);
                 let activeUser = res.data;
                 activeUser.games = getGameManifests(activeUser.steampath);
+                activeUser.ubisoftGames = getUbisoftGames();
                 props.setActiveUser(activeUser);
         })
         .catch(err => {

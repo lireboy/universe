@@ -1,0 +1,15 @@
+GET http://localhost:8079/fetchUbisoftGameInfo
+Content-Type: application/json
+
+{
+  "gameNames": 
+  [
+    "Tom Clancy's Splinter Cell",
+    "Prince of Persia Sands of Time",
+    "Assassin's Creed Origins",
+    "Rayman Origins"
+  ]
+}
+
+###
+GET http://localhost:8080/test/regedit

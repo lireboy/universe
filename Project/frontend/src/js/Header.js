@@ -15,8 +15,8 @@ const Header = (props) => {
     return(
       <header>
         <ul id="headerNav" className={`${props["activeUser"] === null ? "header hidden" : null}`}>
-          <Link className={`clickable ${props["activeTab"] === "steamlibrary" ? "active" : null}`} to="/steamlibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Link>
-          <Link className={`clickable ${props["activeTab"] === "originlibrary" ? "active" : null}`} to="/originlibrary" onClick={() => props.setActiveTab("originlibrary")}>Origin</Link>
+          <Link className={`clickable ${props["activeTab"] === "steamlibrary" ? "active" : null}`} to="/SteamLibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Link>
+          <Link className={`clickable ${props["activeTab"] === "ubisoftlibrary" ? "active" : null}`} to="/UbisoftLibrary" onClick={() => props.setActiveTab("ubisoftlibrary")}>Ubisoft</Link>
             <button style={{color: "black"}} onClick={() => props.setActiveUser(null)}>Logout</button>
           </ul>
 

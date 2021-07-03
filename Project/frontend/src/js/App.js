@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./Header"
 import SteamLibrary from "./SteamLibrary"
+import UbisoftLibrary from "./UbisoftLibrary"
 import Profile from "./Profile"
 import LoginView from "./LoginView"
 import RegisterView from "./RegisterView"
@@ -38,7 +39,6 @@ class App extends Component {
   }
 
   render(){
-
     let activeUser = this.state.activeUser;
     if(activeUser){
       return (
@@ -49,6 +49,9 @@ class App extends Component {
               <Switch>
                 <Route exact path="/SteamLibrary">
                   <SteamLibrary activeUser={this.state.activeUser}/>
+                </Route>
+                <Route exact path="/UbisoftLibrary">
+                  <UbisoftLibrary activeUser={this.state.activeUser}/>
                 </Route>
                 <Route exact path="/profile">
                   <Profile activeUser={this.state.activeUser} setActiveTab={this.setActiveTab}></Profile>

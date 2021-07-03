@@ -1,8 +1,7 @@
 const path = require('path');
 const { app, BrowserWindow, remote } = require('electron');
 const isDev = require('electron-is-dev');
-
-console.log("test");
+const internalServer = require("../src/backendlogic/internalServer");
 
 function createWindow() {
   // Create the browser window.

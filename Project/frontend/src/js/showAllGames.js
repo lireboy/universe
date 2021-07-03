@@ -1,6 +1,7 @@
 var fs = window.require("fs");
 var lineReader = window.require("line-reader");
 const path = require("path");
+const axios = require("axios");
 
 export function getGameManifests(steampath="C:\\Program Files (x86)\\Steam") {
   let games = [];
@@ -57,3 +58,47 @@ export function getGameManifests(steampath="C:\\Program Files (x86)\\Steam") {
   });
   return games;
 };
+
+
+export function getUbisoftGames(ubisoftpath="C:\\Program Files (x86)\\Ubisoft"){
+  let games = [];
+  axios.get("http://localhost:8079/fetchUbisoftGamePathes", {
+  })
+  .then(res => {
+    let gameNames = [];
+    for(let elem of res.data){
+      let tempSplit = elem.split("/");
+      gameNames.push(tempSplit[tempSplit.length-2]);
+    }
+
+    axios.post("http://localhost:8079/fetchUbisoftGameInfo", {
+      headers: {
+        'content-type': 'application/json',
+      },   
+      gameNames: gameNames
+    })
+    .then(res => {
+      for(let elem of res.data){
+        const {game_identifier, background_image, logo_image, icon_image, thumb_image, publisher} = elem;
+        let game = {};
+        fs.readFile(ubisoftpath + "\\Ubisoft Game Launcher\\cache\\assets\\" + thumb_image, (err, data) => {
+          if(data)
+            game["thumb_image"] = data.toString("base64");
+        })
+        game["title"] = game_identifier;
+        game["publisher"] = publisher;
+        games.push(game)
+      }
+      console.log(games);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  })
+
+  .catch(err => {
+      console.log(err);
+  })
+
+  return games;
+}

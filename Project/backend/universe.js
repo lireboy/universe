@@ -36,11 +36,6 @@ app.use(express.urlencoded({
   }));
 app.use(cookieParser());
 
-
-
-
-
-
 app.use(function (req, res, next) {
   next(createError(404));
 });
