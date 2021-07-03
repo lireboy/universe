@@ -2,7 +2,8 @@ import '../css/Library.css';
 import {useState} from "react";
 import {ReactComponent as DownloadSVG} from "../img/svg/download.svg";
 import {ReactComponent as PlaySVG} from "../img/svg/play.svg";
-const SteamAPI = require("steamapi");
+let steam = require("steam-provider");
+let steamuser = require("steam-user");
 
 let mimeType = 'image/jpg';
 
@@ -29,15 +30,11 @@ const Library = props => {
 }
 
 function GameDetailView([currentGame, setCurrentGame]){
-
-  //TODO Im Backend infos generieren und zurück ins Frontend Array übergeben
-  const steam = new SteamAPI("BFDEDB9F8EE644344D9CDCD8E8F28CD4");
-
-  steam.getGameDetails(currentGame.appid).then(data => {
-    console.log(data);
+  var provider = new steam.SteamProvider();
+ 
+  provider.detail(currentGame.appid).then(result => {
+      console.log(result)
   });
-
-  console.log(currentGame.appid);
 
   return(
     <div className="game-detail-view">

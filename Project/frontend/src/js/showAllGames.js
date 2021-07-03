@@ -7,11 +7,16 @@ export function getGameManifests(steampath="C:\\Program Files (x86)\\Steam") {
   let defaultPath = path.join(steampath);
   const librarycache = path.join(defaultPath, "\\appcache\\librarycache");
   const libraryFolders = path.join(defaultPath, "\\steamapps");
+  let sameDir = true;
 
   let lineCount = 0;
   lineReader.eachLine(path.join(libraryFolders, "libraryfolders.vdf"), (line, last) => {
-    if (lineCount > 3 && !last) {
+    if ((lineCount > 3 && !last) || sameDir) {
       let currPath = (line.split("\"")[3] + "\\steamapps").replace("\\\\", "\\");
+      if(sameDir){
+        currPath = steampath + "\\steamapps";
+        sameDir = false;
+      }
       fs.readdir(currPath, (err, files) => {
         for (let i = 0; i < files.length; i++) {
           let curr = files[i];
