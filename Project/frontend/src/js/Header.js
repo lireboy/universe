@@ -9,25 +9,36 @@ import React from 'react';
 import { useState } from "react";
 
 const Header = (props) => {
+  const [darkMode, setDarkMode] = useState(false)
   let activeUser = props["activeUser"];
 
-  if(activeUser)
-    return(
+  if (activeUser)
+    return (
       <header>
         <ul id="headerNav" className={`${props["activeUser"] === null ? "header hidden" : null}`}>
           <Link className={`clickable ${props["activeTab"] === "steamlibrary" ? "active" : null}`} to="/SteamLibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Link>
           <Link className={`clickable ${props["activeTab"] === "ubisoftlibrary" ? "active" : null}`} to="/UbisoftLibrary" onClick={() => props.setActiveTab("ubisoftlibrary")}>Ubisoft</Link>
-            <button style={{color: "black"}} onClick={() => props.setActiveUser(null)}>Logout</button>
-          </ul>
+          <button style={{ color: "black" }} onClick={() => props.setActiveUser(null)}>Logout</button>
+        </ul>
 
 
 
-          <div className="right">
-            <Link className="header_profile_nav" to="/profile" onClick={() => props.setActiveTab("profile")}>
-              <p className={`header_username clickable ${props["activeTab"] === "profile" ? "active" : null}`}>{props.activeUser.userId}</p>
-              <img className={`header_picture ${props["activeTab"] === "profile" ? "active_picture" : null}`} src={logo} alt="" />
-            </Link>
+        <div className="right">
+          <div className={darkMode ? "dark-mode" : "light-mode"}>
+              <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+              <div className="switch-checkbox">
+                <label className="switch">
+                  <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+                  <span className="slider round"> </span>
+                </label>
+              </div>
+              <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
           </div>
+          <Link className="header_profile_nav" to="/profile" onClick={() => props.setActiveTab("profile")}>
+            <p className={`header_username clickable ${props["activeTab"] === "profile" ? "active" : null}`}>{props.activeUser.userId}</p>
+            <img className={`header_picture ${props["activeTab"] === "profile" ? "active_picture" : null}`} src={logo} alt="" />
+          </Link>
+        </div>
       </header>
     )
   return null;
