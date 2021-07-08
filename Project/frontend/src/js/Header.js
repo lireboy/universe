@@ -14,7 +14,7 @@ const Header = (props) => {
 
   if (activeUser)
     return (
-      <header>
+      <header className={darkMode ? "dark-mode" : "light-mode"}>
         <ul id="headerNav" className={`${props["activeUser"] === null ? "header hidden" : null}`}>
           <Link className={`clickable ${props["activeTab"] === "steamlibrary" ? "active" : null}`} to="/SteamLibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Link>
           <Link className={`clickable ${props["activeTab"] === "ubisoftlibrary" ? "active" : null}`} to="/UbisoftLibrary" onClick={() => props.setActiveTab("ubisoftlibrary")}>Ubisoft</Link>
@@ -24,16 +24,14 @@ const Header = (props) => {
 
 
         <div className="right">
-          <div className={darkMode ? "dark-mode" : "light-mode"}>
-              <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+              <span style={{ color: darkMode ? "grey" : "yellow" }}></span>
               <div className="switch-checkbox">
                 <label className="switch">
                   <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
                   <span className="slider round"> </span>
                 </label>
               </div>
-              <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
-          </div>
+              <span style={{ color: darkMode ? "#c96dfd" : "grey" }}></span>
           <Link className="header_profile_nav" to="/profile" onClick={() => props.setActiveTab("profile")}>
             <p className={`header_username clickable ${props["activeTab"] === "profile" ? "active" : null}`}>{props.activeUser.userId}</p>
             <img className={`header_picture ${props["activeTab"] === "profile" ? "active_picture" : null}`} src={logo} alt="" />
