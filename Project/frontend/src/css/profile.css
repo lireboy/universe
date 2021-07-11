@@ -136,3 +136,9 @@
   margin-block: 5px;
   color: lightgray;
 }
+
+#info {
+  background-color: transparent;
+  border-style: none;
+  font-size: 20px;
+}
