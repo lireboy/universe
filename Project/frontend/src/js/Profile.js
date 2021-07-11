@@ -1,18 +1,33 @@
-import React from 'react';
+import {React, useState} from 'react';
 import profilepic from '../img/profilepicture.png';
+import axios from "axios";
 
 let mimeType = 'image/jpg';
 
 
-const profile = (props) => {
+const Profile = (props) => {
+
+  const [info, setInfo] = useState(props.activeUser.info);
+
+  function formPreventDefault(e) {
+    e.preventDefault();
+    console.log("trying to edit user");
+    axios.patch("http://localhost:8080/user/" + props.activeUser.userId, {
+      headers: {
+        'content-type': 'application/json',
+      },
+      "info": info
+    })
+      .then(res => {
+        console.log(res.data);
+        props.activeUser.info = info;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
   let recentlyPlayedSteam = [];
-
-  console.log("games");
-  console.log(props.activeUser.games);
-
-  console.log("rec");
-  console.log(props.activeUser.recentlyPlayedSteam);
 
   for(let game of props.activeUser.games){
     for(let rec of props.activeUser.recentlyPlayedSteam){
@@ -34,7 +49,9 @@ const profile = (props) => {
         <div className="right">
             <p className="big">{props.activeUser.name}</p>             
             <p className="medium">Info:</p>
-            <p className="small">{props.activeUser.info}</p> 
+            <form onSubmit={formPreventDefault}>
+              <input id="info" placeholder="Default Text" type="text" name="name" value={info} onChange={(e) => setInfo(e.target.value)} />
+            </form>
             <p className="small">{props.activeUser.email}</p>   
         </div>
       </div>
@@ -76,4 +93,4 @@ function convertPlaytime(playtimeInMins){
   }
 }
 
-export default profile;
+export default Profile;

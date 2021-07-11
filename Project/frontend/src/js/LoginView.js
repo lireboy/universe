@@ -19,28 +19,53 @@ const LoginView = (props) => {
 
     function formPreventDefault(e){ 
         e.preventDefault();
-        console.log("trying to login user");
-        axios.post("http://localhost:8080/authenticate/login", {
-            headers: {
-                'content-type': 'application/json',
-              },    
-            "userId": username,
-            "password": password
-        })
-        .then(res => {
-            console.log(res.data);
-            if("userId" in res.data && "token" in res.data)
+        if(!registerMode){
+            console.log("trying to login user");
+            axios.post("http://localhost:8080/authenticate/login", {
+                headers: {
+                    'content-type': 'application/json',
+                },    
+                "userId": username,
+                "password": password
+            })
+            .then(res => {
                 console.log(res.data);
-                let activeUser = res.data;
-                activeUser.games = getGameManifests(activeUser.steampath);
-                activeUser.ubisoftGames = getUbisoftGames();
-                activeUser.recentlyPlayedSteam = getRecentlyPlayedSteam();
-                console.log(getRecentlyPlayedSteam());
-                props.setActiveUser(activeUser);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+                if("userId" in res.data && "token" in res.data)
+                    console.log(res.data);
+                    let activeUser = res.data;
+                    activeUser.games = getGameManifests(activeUser.steampath);
+                    activeUser.ubisoftGames = getUbisoftGames();
+                    activeUser.recentlyPlayedSteam = getRecentlyPlayedSteam();
+                    console.log(getRecentlyPlayedSteam());
+                    props.setActiveUser(activeUser);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+        else{
+            console.log("trying to register new user");
+            console.log("check if password and email are same");
+
+            if(email !== confirmEmail || password !== confirmPassword)
+                return;
+
+            axios.post("http://localhost:8080/authenticate/createUser", {
+                headers: {
+                    'content-type': 'application/json',
+                },    
+                "userId": username,
+                "password": password,
+                "email": email
+            })
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+        
     }
 
     return (

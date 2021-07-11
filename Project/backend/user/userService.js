@@ -27,7 +27,8 @@ async function createUser(props, callback) {
         var user = new User({
             userId,
             email,
-            password
+            password,
+            name: userId
         });
         const savedUser = await user.save();
         callback(null, savedUser);
