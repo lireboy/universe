@@ -86,12 +86,14 @@ header *{
 
 .dark-mode {
   background-color: #1a1919;
+  color:#19a2c1;
   width: 100%;
   transition: background-color 0.25s ease-in-out;
 }
 
 .light-mode {
   background-color: rgb(255, 143, 218);
+  color: red;
   width: 100%;
   transition: background-color 0.25s ease-in-out;
 }
@@ -170,4 +172,17 @@ input:checked + .slider:before {
 }
 .switch-checkbox {
   padding: 10px
+}
+
+button.logout {
+  color: black;
+  border-radius: 16px;
+  width: 52px;
+  border-style: none;
+  background-color: #ccc;
+}
+
+button.logout:hover {
+  transition: .3s;
+  background-color :#c11919;
 }
