@@ -1,4 +1,4 @@
-import '../css/GamePreview.css';
+//import '../css/GamePreview.css';
 
 const GamePreview = ({games}) => {
 

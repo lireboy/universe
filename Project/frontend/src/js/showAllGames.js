@@ -37,19 +37,22 @@ export function getGameManifests(steampath="C:\\Program Files (x86)\\Steam") {
                     if (data)
                       game["banner"] = data.toString('base64');
                   });
-
                   const posterPath = path.join(librarycache, (game["appid"] + "_library_600x900.jpg"));
                   fs.readFile(posterPath, (err, data) => {
                     if (data)
                       game["poster"] = data.toString('base64');
+                  });
+                  const iconPath = path.join(librarycache, (game["appid"] + "_icon.jpg"));
+                  fs.readFile(iconPath, (err, data) => {
+                    if (data)
+                      game["icon"] = data.toString('base64');
                   });
                   requiredImage = true;
                 }
               }
               lineCount++;
             });
-
-            games.push(game)
+            games.push(game);
           }
         };
       });
@@ -101,4 +104,21 @@ export function getUbisoftGames(ubisoftpath="C:\\Program Files (x86)\\Ubisoft"){
   })
 
   return games;
+}
+
+export function getRecentlyPlayedSteam(steamid="https://steamcommunity.com/id/D0mix/"){
+  let recPlayed = [];
+  axios.post("http://localhost:8079/getRecentlyPlayedSteam", {
+    headers:{
+      "Content-Type": "application/json"
+    },
+    steamid: steamid,
+    key: "BFDEDB9F8EE644344D9CDCD8E8F28CD4"
+  })
+  .then(res => {
+    for(let rec of res.data){
+      recPlayed.push(rec);
+    }
+  });
+  return recPlayed;
 }

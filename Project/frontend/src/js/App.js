@@ -5,10 +5,8 @@ import SteamLibrary from "./SteamLibrary"
 import UbisoftLibrary from "./UbisoftLibrary"
 import Profile from "./Profile"
 import LoginView from "./LoginView"
-import RegisterView from "./RegisterView"
 import Settings from "./SettingsView"
 
-import '../css/App.css';
 import wallpaper from "../img/wallpaper.jpg";
 import { Component } from "react";
 
@@ -44,8 +42,8 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
+            <Header activeUser={this.state.activeUser} activeTab={this.state.activeTab} setActiveTab={this.setActiveTab} setActiveUser={this.setActiveUser}></Header>
             <div className="content">
-              <Header activeUser={this.state.activeUser} activeTab={this.state.activeTab} setActiveTab={this.setActiveTab} setActiveUser={this.setActiveUser}></Header>
               <Switch>
                 <Route exact path="/SteamLibrary">
                   <SteamLibrary activeUser={this.state.activeUser}/>
@@ -62,7 +60,7 @@ class App extends Component {
 
               </Switch>
             </div>
-            <img id="background" src={wallpaper} alt="" />
+            <div id="background"/>
           </div>
         </Router>
       );

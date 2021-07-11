@@ -1,4 +1,3 @@
-import '../css/Library.css';
 import {useState} from "react";
 let steam = require("steam-provider");
 
@@ -9,6 +8,11 @@ const Library = props => {
   const [currentGame, setCurrentGame] = useState(null);
 
   let games = typeof props.activeUser.games === "undefined" ? [] : props.activeUser.games;
+  for(let i = 0; i < games.length; i++){
+    if(games[i].title === "Steamworks Common Redistributables"){
+      games = games.splice(i, 1);
+    }
+  }
 
   return(
     <div>

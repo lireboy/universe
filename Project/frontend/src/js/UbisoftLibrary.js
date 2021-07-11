@@ -1,4 +1,3 @@
-import '../css/Library.css';
 import {useState} from "react";
 
 let mimeType = 'image/jpg';

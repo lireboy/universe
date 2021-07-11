@@ -1,14 +1,8 @@
-*{
-  color: white;
-  font-family: Roboto;
-}
-
 .profile_overview{
   width: 1000px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -107,8 +101,8 @@
 }
 
 .profile_game_container img{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   margin: 10px;
 }
@@ -137,8 +131,7 @@
   color: lightgray;
 }
 
-#info {
-  background-color: transparent;
-  border-style: none;
-  font-size: 20px;
+#recentlyPlayed{
+  background-color:rgba(0, 0, 0, 0.3);
+  padding-bottom: 100px;
 }

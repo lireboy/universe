@@ -1,4 +1,3 @@
-import '../css/settings.css';
 import { useState } from "react";
 import {getGameManifests} from "./showAllGames";
 const axios = require("axios");

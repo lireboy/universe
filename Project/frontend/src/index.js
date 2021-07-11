@@ -4,6 +4,14 @@ import './css/index.css';
 import App from './js/App';
 import reportWebVitals from './js/reportWebVitals';
 
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './css/Header.css';
+import './css/loginView.css';
+import './css/Library.css';
+import './css/settings.css';
+import './css/profile.css';
+import './css/App.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

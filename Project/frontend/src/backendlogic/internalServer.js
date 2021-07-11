@@ -72,4 +72,23 @@ app.post("/fetchUbisoftGameInfo", (req, res) => {
   });
 });
 
+app.post("/getRecentlyPlayedSteam", (req, res) => {
+  let steamapi = require("steam-webapi");
+  steamapi.key = req.body.key;
+  steamapi.ready(err => {
+    if(err)
+      return console.log(err);
+    let steam = new steamapi();
+
+    let datasteamid = req.body.steamid.split("\/")[4];
+
+    steam.resolveVanityURL({vanityurl: datasteamid}, (err, data) => {
+      data.count = 5;
+      steam.getRecentlyPlayedGames(data, (err, recData) => {
+        res.send(recData.games);
+      });
+    });
+  });
+});
+
 module.exports = app;
