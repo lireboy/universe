@@ -1,6 +1,7 @@
 import {React, useState} from 'react';
 import profilepic from '../img/profilepicture.png';
 import axios from "axios";
+import Button from 'react-bootstrap/Button'
 
 let mimeType = 'image/jpg';
 
@@ -8,6 +9,7 @@ let mimeType = 'image/jpg';
 const Profile = (props) => {
 
   const [info, setInfo] = useState(props.activeUser.info);
+  const [username, setUsername] = useState(props.activeUser.name);
 
   function formPreventDefault(e) {
     e.preventDefault();
@@ -16,11 +18,13 @@ const Profile = (props) => {
       headers: {
         'content-type': 'application/json',
       },
-      "info": info
+      "info": info,
+      "name": username
     })
       .then(res => {
         console.log(res.data);
         props.activeUser.info = info;
+        props.activeUser.name = username;
       })
       .catch(err => {
         console.log(err);
@@ -31,7 +35,6 @@ const Profile = (props) => {
 
   for(let game of props.activeUser.games){
     for(let rec of props.activeUser.recentlyPlayedSteam){
-      console.log(game.appid + " + " + rec.appid);
       if(game.appid === rec.appid.toString()){
         game.playtime_2weeks = rec.playtime_2weeks;
         game.playtime_forever = rec.playtime_forever;
@@ -44,16 +47,15 @@ const Profile = (props) => {
     <div className="profile_overview">
       <div className="profile">
         <div className="left">
-            <img className="profile-picture" id="profile_user_Picture" src={profilepic} alt=""/> 
+          <img className="profile-picture" id="profile_user_Picture" src={profilepic} alt="" />
         </div>
-        <div className="right">
-            <p className="big">{props.activeUser.name}</p>             
-            <p className="medium">Info:</p>
-            <form onSubmit={formPreventDefault}>
-              <input id="info" placeholder="Default Text" type="text" name="name" value={info} onChange={(e) => setInfo(e.target.value)} />
-            </form>
-            <p className="small">{props.activeUser.email}</p>   
-        </div>
+        <form onSubmit={formPreventDefault} className="profile-right">
+          <input type="text" className="big" name="username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+          <p className="medium">Info:</p>
+          <textarea rows="8" className="info" type="text" name="info" value={info} onChange={(e) => setInfo(e.target.value)}>
+          </textarea>
+          <Button variant="success" type="submit" >Update</Button>
+        </form>
       </div>
       <div id ="recentlyPlayed">
         <p id="recent">Recently Played:</p>

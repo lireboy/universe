@@ -1,5 +1,10 @@
+*{
+  color: white;
+  font-family: Roboto;
+}
+
 .profile_overview{
-  width: 1000px;
+  width: 70%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -9,34 +14,31 @@
 }
 
 .profile{
-  padding: 5%;
-  padding-top: 10%;
+  padding-top: 60px;
+  padding-bottom: 20px;
   width: 100%;
   height: 100%;
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.1);
-  filter: drop-shadow(1 1 black);
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
 }
 
-.profile .right{
+.profile .profile-right{
   display:flex;
   flex-direction: column;
-  width: 30%;
-}
-
-.profile .right *{
-  text-align: left;
-  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60%;
+  padding-bottom: 30px;
 }
 
 .profile .left{
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
   width: 25%;
   
 }
@@ -52,52 +54,42 @@
 
 
 .profile .big{
+  text-align: center;
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 40px;
 }
 
 .profile .medium{
   font-size: 30px;
-}
-
-.profile .small{
-  font-size: 20px;
+  align-self: flex-start;
 }
 
 #recentlyPlayed{
-    width: 1000px;
-    height: 100%;
-    font-size: 18px;
-    font-family: Roboto;
-    margin:auto;
-    left: 0;
-    right: 0;
-  }
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  font-family: Roboto;
+  margin:auto;
+  left: 0;
+  right: 0;
+}
 
 #recent{
-    font-size: 30px;
-    font-weight: 400;
-    margin-top: 100px;
-    margin-left: 40px;
+  font-size: 30px;
+  font-weight: 400;
+  padding-top: 20px;
+  margin-left: 40px;
 }
 
 .profile_game_container{
   list-style-type: none;
-  background-color:rgba(255, 255, 255, 0.1);
+  background-color:rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  
+
   height: auto;
   display: flex;
   align-items: center;
   margin: 20px 40px 20px 40px;
-  cursor: pointer;
-  backdrop-filter: blur(2px);
-}
-
-.profile_game_container:hover{
-  background-color:rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 10px 2px#fff;
 }
 
 .profile_game_container img{
@@ -116,28 +108,44 @@
 }
 
 .profile_game_title{
-  font-size: 35px;
-  font-weight: 700;
+  font-size: 18px;
+  margin: auto;
 }
 
 .profile_game_specific{
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 .profile_game_specific p{
-  text-align: right;
-  margin-block: 5px;
-  color: lightgray;
+text-align: right;
+margin-block: 5px;
+color: lightgray;
 }
 
 #recentlyPlayed{
-  background-color:rgba(0, 0, 0, 0.3);
-  padding-bottom: 100px;
+  background-color:rgba(255, 255, 255, 0.1);
+  margin-bottom: 100px;
+  backdrop-filter: blur(50px);
 }
 
-#info {
+.profile-right .info,
+.profile-right input {
   background-color: transparent;
-  border-style: none;
   font-size: 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.profile-right .btn{
+  align-self: flex-end;
+}
+
+.profile-right .info:focus,
+.profile-right input:focus {
+  outline: 1px solid lightgray;
 }

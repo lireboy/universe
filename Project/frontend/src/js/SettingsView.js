@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {getGameManifests} from "./showAllGames";
+import Button from "react-bootstrap/Button"
 const axios = require("axios");
 
 
@@ -18,8 +19,7 @@ const Settings = (props) => {
             "steampath": steampath,
             "originpath": originpath
         })
-        .then(res => {
-            console.log(res.data);
+        .then(() => {
             props.activeUser.steampath = steampath;
             props.activeUser.originpath = originpath;
             props.activeUser.games = getGameManifests(steampath);
@@ -33,24 +33,16 @@ const Settings = (props) => {
     return(
       <div className="settings_overview">
           <form className="settings-container" onSubmit={formPreventDefault}>
-            <div className="title">
-                Settings
+            <h1 id="settings-title">Settings</h1>
+            <div className="settings-row">
+                <p className="path">Steampath:</p>
+                <input placeholder="C:\\Program Files (x86)\\Steam"  type="text" name="steampath" value={steampath} onChange={(e) => setSteampath(e.target.value)} />
             </div>
-            <div className="settings">
-                <div className="settings-row">
-                    <div className="path">
-                        Steampath:
-                    </div>
-                    <input placeholder="C:\\Program Files (x86)\\Steam"  type="text" name="name" value={steampath} onChange={(e) => setSteampath(e.target.value)} />
-                </div>
-                <div className="settings-row">
-                    <div className="path">
-                        Originpath:
-                    </div>
-                    <input placeholder="C:\\Program Files (x86)\\Origin Games"  type="text" name="name" value={originpath} onChange={(e) => setOriginpath(e.target.value)} />
-                </div>
+            <div className="settings-row">
+                <p className="path">Originpath:</p>
+                <input placeholder="C:\\Program Files (x86)\\Origin Games"  type="text" name="originpath" value={originpath} onChange={(e) => setOriginpath(e.target.value)} />
             </div>
-            <button className="submit" type="submit" value="Save Settings">Save Settings</button>
+            <Button variant="success" id="settings-submit" type="submit">Save Settings</Button>
           </form>
       </div>
     )

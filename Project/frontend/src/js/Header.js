@@ -15,13 +15,13 @@ import React from 'react';
 import { useState } from "react";
 
 const Header = (props) => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   let activeUser = props["activeUser"];
 
   if (activeUser)
     return(
       <div>
-        <Navbar className={darkMode ? "dark-mode" : "light-mode"} variant={darkMode ? "dark" : "light"}>
+        <Navbar fixed="top" className={darkMode ? "dark-mode" : "light-mode"} variant={darkMode ? "dark" : "light"}>
           <Nav className="mr-auto">
             <Nav.Link as={Link} to="/SteamLibrary" onClick={() => props.setActiveTab("steamlibrary")}>Steam</Nav.Link>
             <Nav.Link as={Link} to="/UbisoftLibrary" onClick={() => props.setActiveTab("ubisoftlibrary")}>Ubisoft</Nav.Link>

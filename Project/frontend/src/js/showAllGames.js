@@ -92,7 +92,6 @@ export function getUbisoftGames(ubisoftpath="C:\\Program Files (x86)\\Ubisoft"){
         game["publisher"] = publisher;
         games.push(game)
       }
-      console.log(games);
     })
     .catch(err => {
       console.log(err);

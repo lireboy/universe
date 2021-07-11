@@ -43,7 +43,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header activeUser={this.state.activeUser} activeTab={this.state.activeTab} setActiveTab={this.setActiveTab} setActiveUser={this.setActiveUser}></Header>
-            <div className="content">
+            <div id="content">
               <Switch>
                 <Route exact path="/SteamLibrary">
                   <SteamLibrary activeUser={this.state.activeUser}/>

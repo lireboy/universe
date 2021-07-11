@@ -32,10 +32,8 @@ const Library = props => {
 
 function GameDetailView([currentGame, setCurrentGame]){
   var provider = new steam.SteamProvider();
- 
-  provider.detail(currentGame.appid).then(result => {
-      console.log(result)
-  });
+  
+  //let gameInfo = await provider.detail(currentGame.appid);
 
   return(
     <div className="game-detail-view">

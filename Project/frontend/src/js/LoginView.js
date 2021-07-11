@@ -40,7 +40,7 @@ const LoginView = (props) => {
                     props.setActiveUser(activeUser);
             })
             .catch(err => {
-                console.log(err);
+                //console.log(err);
             })
         }
         else{
