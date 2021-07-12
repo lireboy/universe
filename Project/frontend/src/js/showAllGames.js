@@ -105,7 +105,10 @@ export function getUbisoftGames(ubisoftpath="C:\\Program Files (x86)\\Ubisoft"){
   return games;
 }
 
-export function getRecentlyPlayedSteam(steamid="https://steamcommunity.com/id/D0mix/"){
+export function getRecentlyPlayedSteam(steamid){
+  if(steamid === null || typeof steamid === "undefined" || steamid === ""){
+    return [];
+  }
   let recPlayed = [];
   axios.post("http://localhost:8079/getRecentlyPlayedSteam", {
     headers:{

@@ -37,6 +37,11 @@ const UserSchema = new mongoose.Schema({
         default: ""
  
      },
+     steamID: {
+        type: String,
+        default: ""
+ 
+     },
     image: String,
     info: {
         type: String,

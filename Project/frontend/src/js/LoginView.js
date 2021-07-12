@@ -1,6 +1,7 @@
 import { useState } from "react";
 import person from "../img/svg/person.svg";
 import lock from "../img/svg/lock.svg";
+import emailIcon from "../img/svg/email.svg";
 import {getGameManifests, getUbisoftGames, getRecentlyPlayedSteam} from "./showAllGames";
 const axios = require("axios");
 
@@ -35,8 +36,7 @@ const LoginView = (props) => {
                     let activeUser = res.data;
                     activeUser.games = getGameManifests(activeUser.steampath);
                     activeUser.ubisoftGames = getUbisoftGames();
-                    activeUser.recentlyPlayedSteam = getRecentlyPlayedSteam();
-                    console.log(getRecentlyPlayedSteam());
+                    activeUser.recentlyPlayedSteam = getRecentlyPlayedSteam(activeUser.steamID);
                     props.setActiveUser(activeUser);
             })
             .catch(err => {
@@ -82,12 +82,15 @@ const LoginView = (props) => {
                 </div>
                 <div className={`register-handler ${registerMode !== true ? "hidden" : ""}`}>
                     <div className="handler">
+                        <img src={lock} alt="" />
                         <input placeholder="Confirm Password" type="password" name="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                     </div>
                     <div className="handler">
+                    <img src={emailIcon} alt="" />
                         <input placeholder="Email" type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="handler">
+                    <img src={emailIcon} alt="" />
                         <input placeholder="Confirm Email" type="email" name="emailConfirm" value={confirmEmail} onChange={(e) => setConfirmEmail(e.target.value)} />
                     </div>       
                 </div>

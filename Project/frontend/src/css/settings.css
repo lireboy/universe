@@ -48,6 +48,9 @@
 input::placeholder{
   color:lightgray;
 }
+input:focus::placeholder {
+  color: transparent;
+}
   
 #settings-submit{
   bottom: 20px;

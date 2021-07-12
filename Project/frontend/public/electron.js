@@ -8,8 +8,8 @@ function createWindow() {
   const win = new BrowserWindow({
     title: "UniVerse",
     width: 800,
-    height: 600,
-    minHeight: 600,
+    height: 800,
+    minHeight: 800,
     minWidth: 800,
     webPreferences: {
       nodeIntegration: true,
@@ -17,6 +17,7 @@ function createWindow() {
       webSecurity: false
     },
   });
+  win.maximize();
 
   // and load the index.html of the app.
   // win.loadFile("index.html");

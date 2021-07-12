@@ -71,7 +71,8 @@ router.post('/login', function (req, res, next) {
                     info,
                     email,
                     steampath,
-                    originpath
+                    originpath,
+                    steamID
                 } = user;
                 const subset = {
                     userId,
@@ -80,7 +81,8 @@ router.post('/login', function (req, res, next) {
                     name,
                     info,
                     steampath,
-                    originpath
+                    originpath,
+                    steamID
                 };
                 console.log(JSON.stringify(subset))
                 res.send(subset)

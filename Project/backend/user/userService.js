@@ -139,6 +139,10 @@ async function editUser(userId, props, callback) {
             user.originpath = props.originpath;
             console.log("Originpath changed!");
         }
+        if (props.steamID) {
+            user.steamID = props.steamID;
+            console.log("SteamID changed!");
+        }
 
 
         await user.save();
