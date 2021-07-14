@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "universe.js",
+  "main": "app.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "config": "^3.3.6",
@@ -14,11 +14,12 @@
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
     "nodemon": "^2.0.7",
-    "regedit": "^4.0.0"
+    "regedit": "^4.0.0",
+    "serverless-http": "^2.7.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon ./universe.js"
+    "start": "nodemon ./app.js"
   },
   "author": "",
   "license": "ISC"

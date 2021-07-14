@@ -14,7 +14,7 @@ const Settings = (props) => {
     function formPreventDefault(e){ 
         e.preventDefault();
         console.log("trying to edit user");
-        axios.patch("http://localhost:8080/user/" + props.activeUser.userId, {
+        axios.patch("http://https://bya8kf7trc.execute-api.us-east-1.amazonaws.com/user/" + props.activeUser.userId, {
             headers: {
                 'content-type': 'application/json',
               },    

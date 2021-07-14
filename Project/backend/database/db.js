@@ -3,7 +3,7 @@ const config = require('config');
 
 let _db;
 
-const connectionString = config.get('db.connectionString');
+const connectionString = "mongodb+srv://universe:einhorn@cluster0.pvism.mongodb.net/UniVerseDB?retryWrites=true&w=majority";
 
 function initDB(callback) {
     if (_db) {
