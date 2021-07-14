@@ -33,7 +33,6 @@ const Profile = (props) => {
         console.log(err);
       })
   }
-
   let recentlyPlayedSteam = [];
 
   for(let game of props.activeUser.games){
