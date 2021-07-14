@@ -81,17 +81,16 @@ app.post("/getRecentlyPlayedSteam", (req, res) => {
     let steam = new steamapi();
 
     let datasteamid = req.body.steamid.split("\/");
-    console.log(datasteamid);
     let steamid;
     if(datasteamid.length === 1)
-      steamid = datasteamid[0];
+    steamid = datasteamid[0];
     else{
       if(datasteamid[datasteamid.length - 1] === "")
-        steamid = datasteamid[datasteamid.length - 2];
+      steamid = datasteamid[datasteamid.length - 2];
       else
-        steamid = datasteamid[datasteamid.length - 1];
-        
+      steamid = datasteamid[datasteamid.length - 1];
     } 
+    console.log(steamid);
 
     steam.resolveVanityURL({vanityurl: steamid}, (err, data) => {
       data.count = 5;
