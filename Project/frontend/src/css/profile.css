@@ -44,9 +44,18 @@
 }
 
 .profile .left .profile-picture{
-  width: 90%;
+  width: 100%;
   margin-right: 5px;
 }
+
+.profile-picture {
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .profile .left .seeting-icon {
   width: 20%;
   margin-bottom: 0px;
@@ -148,4 +157,24 @@ color: lightgray;
 .profile-right .info:focus,
 .profile-right input:focus {
   outline: 1px solid lightgray;
+}
+
+.profile input[type="file"] {
+  display: none;
+}
+
+.fileupload {
+  background-color:#198754;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-bottom: 20px;
+}
+
+.fileupload:hover {
+  background-color: #157347;
+  cursor: pointer;
+}
+
+.buttonPos {
+  margin-left: 85%;
 }
