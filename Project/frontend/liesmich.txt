@@ -1,0 +1,4 @@
+- run.bat ausführen
+- Registrieren/Login
+- In Einstellungen deinen Steam Pfad und Steam ID eingeben (https://steamcommunity.com/id/[DEINE_ID])
+- Spiele Client im Header auswählen und deine Spiele starten :)
