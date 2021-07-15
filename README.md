@@ -16,6 +16,8 @@
   <p align="center">
     <br />
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><strong>View Video</strong></a>
+    .
+    <a href="https://www.youtube.com/watch?v=2Jo6HQRS0Fg"><strong>View Promo Video</strong></a>
     ·
     <a href="https://gitlab.beuth-hochschule.de/s80356/universe"><strong>View Repo</strong></a>
     ·
@@ -87,6 +89,8 @@ Warum __UniVerse__?
 
 ### Konzept
 
+Architektur
+![Image](./pics/2-Figure1-1.png) 
 
 Startseite
 ![Image](./pics/entwurf1.jpeg) 
@@ -117,7 +121,7 @@ Login
 Register
 ![Image](./pics/Screenshot_6.png) 
 
-Profil und recently played
+Profil und Recently Played
 ![Image](./pics/Screenshot_3.png) 
 
 Bibliothek Steam
@@ -152,7 +156,7 @@ Zum aktuellen Stand (16.07.2021) können mit UniVerse spiele der Clients Steam u
 
 * [Gitlab](https://gitlab.beuth-hochschule.de/s80356/universe)
 
-* [Deployment](https://www.atlassian.com/)
+* [Deployment](https://mega.nz/file/4aA13YBa#L1u_5HyQDG4--A2Q8Wtshf0NZWzsJCiDijNOop83XHo)
 
 <br />
 
@@ -162,5 +166,5 @@ Zum aktuellen Stand (16.07.2021) können mit UniVerse spiele der Clients Steam u
 * [ReactJS](https://reactjs.org)
 * [ExpressJS](https://expressjs.com/de/)
 * [ElectronJS](https://www.electronjs.org)
-* [YouTube](https://kenwheeler.github.io/slick)
+* [YouTube](https://www.youtube.com/watch?v=2Jo6HQRS0Fg)
 * [Videotool Sony Vegas](https://www.vegascreativesoftware.com/de/)
