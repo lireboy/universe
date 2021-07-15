@@ -22,7 +22,7 @@ const LoginView = (props) => {
         e.preventDefault();
         if(!registerMode){
             console.log("trying to login user");
-            axios.post("http://localhost:27017/authenticate/login", {
+            axios.post("http://91.66.115.118:27017/authenticate/login", {
                 headers: {
                     'content-type': 'application/json',
                 },    
@@ -50,7 +50,7 @@ const LoginView = (props) => {
             if(email !== confirmEmail || password !== confirmPassword)
                 return;
 
-            axios.post("http://localhost:27017/authenticate/createUser", {
+            axios.post("http://91.66.115.118:27017/authenticate/createUser", {
                 headers: {
                     'content-type': 'application/json',
                 },    

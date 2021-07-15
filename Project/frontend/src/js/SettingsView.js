@@ -14,7 +14,7 @@ const Settings = (props) => {
     function formPreventDefault(e){ 
         e.preventDefault();
         console.log("trying to edit user");
-        axios.patch("mongodb+srv://universe:einhorn@cluster0.ydslo.mongodb.net/user/" + props.activeUser.userId, {
+        axios.patch("http://91.66.115.118:27017/user/" + props.activeUser.userId, {
             headers: {
                 'content-type': 'application/json',
               },    
