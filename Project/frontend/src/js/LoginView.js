@@ -22,7 +22,7 @@ const LoginView = (props) => {
         e.preventDefault();
         if(!registerMode){
             console.log("trying to login user");
-            axios.post("http://https://bya8kf7trc.execute-api.us-east-1.amazonaws.com/authenticate/login", {
+            axios.post("http://localhost:27017/authenticate/login", {
                 headers: {
                     'content-type': 'application/json',
                 },    
@@ -50,7 +50,7 @@ const LoginView = (props) => {
             if(email !== confirmEmail || password !== confirmPassword)
                 return;
 
-            axios.post("http://https://bya8kf7trc.execute-api.us-east-1.amazonaws.com/authenticate/createUser", {
+            axios.post("http://localhost:27017/authenticate/createUser", {
                 headers: {
                     'content-type': 'application/json',
                 },    

@@ -12,7 +12,7 @@ const gameRoutes = require('./games/gameRoute');
 const app = express();
 app.use(cors());
 app.use(express.json());
-const port = 8080;
+const port = 27017;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
@@ -43,4 +43,4 @@ app.use(function (req, res, next) {
 
 
 
-module.exports.handler = serverless(app);
+module.exports.handler = app;

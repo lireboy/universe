@@ -9,6 +9,6 @@
             "useNewUrlParser": true,
             "useUnifiedTopology": true
         },
-        "connectionString": "mongodb://localhost/UniverseDB"
+        "connectionString": "mongodb+srv://universe:einhorn@cluster0.ydslo.mongodb.net/UniverseDB"
     }
 }
