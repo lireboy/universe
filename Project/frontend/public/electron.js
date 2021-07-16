@@ -18,7 +18,7 @@ function createWindow() {
     },
   });
   win.maximize();
-
+  win.removeMenu();
   // and load the index.html of the app.
   // win.loadFile("index.html");
   win.loadURL(
@@ -27,10 +27,10 @@ function createWindow() {
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
   // Open the DevTools.
-  if (isDev) {
-    win.webContents.openDevTools({ mode: 'detach' });
-  }
-}
+//   if (isDev) {
+//     win.webContents.openDevTools({ mode: 'detach' });
+//   }
+ }
 
 
 
