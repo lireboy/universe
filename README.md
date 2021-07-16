@@ -156,7 +156,7 @@ Zum aktuellen Stand (16.07.2021) können mit UniVerse spiele der Clients Steam u
 
 * [Gitlab](https://gitlab.beuth-hochschule.de/s80356/universe)
 
-* [Deployment](https://mega.nz/file/4aA13YBa#L1u_5HyQDG4--A2Q8Wtshf0NZWzsJCiDijNOop83XHo)
+* [Deployment](https://mega.nz/file/EfggmI4Q#1zXqersTVIxHuBaGvMJwmF4SBBfmLO2mnzkqWp_GkUg)
 
 <br />
 
