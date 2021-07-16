@@ -44,10 +44,6 @@ const Settings = (props) => {
                 <input placeholder="C:\\Program Files (x86)\\Steam"  type="text" name="steampath" value={steampath} onChange={(e) => setSteampath(e.target.value)} />
             </div>
             <div className="settings-row">
-                <p className="path">Originpath:</p>
-                <input placeholder="C:\\Program Files (x86)\\Origin Games"  type="text" name="originpath" value={originpath} onChange={(e) => setOriginpath(e.target.value)} />
-            </div>
-            <div className="settings-row">
                 <p className="path">SteamID:</p>
                 <input placeholder="https://steamcommunity.com/id/JohnDoe/"  type="text" name="steamID" value={steamID} onChange={(e) => setSteamID(e.target.value)} />
             </div>
